@@ -1,0 +1,33 @@
+{
+    "kind": "youtube#i18nRegionListResponse",
+    "etag": "fake-etag-i18n-regions",
+    "items": [
+        {
+            "kind": "youtube#i18nRegion",
+            "etag": "fake-etag-region-us",
+            "id": "US",
+            "snippet": {
+                "gl": "US",
+                "name": "United States"
+            }
+        },
+        {
+            "kind": "youtube#i18nRegion",
+            "etag": "fake-etag-region-gb",
+            "id": "GB",
+            "snippet": {
+                "gl": "GB",
+                "name": "United Kingdom"
+            }
+        },
+        {
+            "kind": "youtube#i18nRegion",
+            "etag": "fake-etag-region-ca",
+            "id": "CA",
+            "snippet": {
+                "gl": "CA",
+                "name": "Canada"
+            }
+        }
+    ]
+}
