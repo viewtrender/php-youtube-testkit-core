@@ -1,0 +1,65 @@
+{
+    "kind": "youtube#playlistItemListResponse",
+    "etag": "fake-etag-playlist-items",
+    "nextPageToken": "CAUQAA",
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "fake-etag-playlist-item-1",
+            "id": "UExfZmFrZV9wbGF5bGlzdF9pZC5kUXc0dzlXZ1hjUQ",
+            "snippet": {
+                "publishedAt": "2023-01-15T12:00:00Z",
+                "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                "title": "Fake Playlist Item Title",
+                "description": "This is a fake playlist item description for testing purposes.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Fake Channel",
+                "playlistId": "PL_fake_playlist_id",
+                "position": 0,
+                "resourceId": {
+                    "kind": "youtube#video",
+                    "videoId": "dQw4w9WgXcQ"
+                },
+                "videoOwnerChannelTitle": "Fake Video Owner Channel",
+                "videoOwnerChannelId": "UCfake_video_owner_channel_id"
+            },
+            "contentDetails": {
+                "videoId": "dQw4w9WgXcQ",
+                "videoPublishedAt": "2009-10-25T06:57:33Z"
+            },
+            "status": {
+                "privacyStatus": "public"
+            }
+        }
+    ]
+}
