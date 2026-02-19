@@ -70,4 +70,13 @@ class YoutubeChannelTest extends TestCase
         $this->assertSame('ch-1', $body['items'][0]['id']);
         $this->assertSame(2, $body['pageInfo']['totalResults']);
     }
+
+    public function test_list_with_overrides(): void
+    {
+        $response = YoutubeChannel::list(['etag' => 'custom-etag']);
+
+        $body = json_decode($response->body, true);
+
+        $this->assertSame('custom-etag', $body['etag']);
+    }
 }
