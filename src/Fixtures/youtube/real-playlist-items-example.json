@@ -1,0 +1,33 @@
+{
+    "kind": "youtube#playlistItemListResponse",
+    "etag": "iPerg1be7GcEctbBj3ffjIiTz0g",
+    "items": [
+        {
+            "kind": "youtube#playlistItem",
+            "etag": "kfdHsQPexCxzJJt9WK4pMwzc0SQ",
+            "id": "UExyQVh0bUVyWmdPZWlLbTRzZ05Pa25Hdk5qYnk5ZWZkZi4yMUQyQTQzMjRDNzMyQTMy",
+            "snippet": {
+                "publishedAt": "2020-01-10T16:04:32Z",
+                "channelId": "UCSHZKyawb77ixDdsGog4iWA",
+                "title": "Deep Learning State of the Art (2020)",
+                "description": "Lecture on most recent research and developments in deep learning...",
+                "thumbnails": {
+                    "default": {"url": "https://i.ytimg.com/vi/0VH1Lim8gL8/default.jpg", "width": 120, "height": 90},
+                    "medium": {"url": "https://i.ytimg.com/vi/0VH1Lim8gL8/mqdefault.jpg", "width": 320, "height": 180},
+                    "high": {"url": "https://i.ytimg.com/vi/0VH1Lim8gL8/hqdefault.jpg", "width": 480, "height": 360},
+                    "standard": {"url": "https://i.ytimg.com/vi/0VH1Lim8gL8/sddefault.jpg", "width": 640, "height": 480},
+                    "maxres": {"url": "https://i.ytimg.com/vi/0VH1Lim8gL8/maxresdefault.jpg", "width": 1280, "height": 720}
+                },
+                "channelTitle": "Lex Fridman",
+                "playlistId": "PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf",
+                "position": 0,
+                "resourceId": {"kind": "youtube#video", "videoId": "0VH1Lim8gL8"},
+                "videoOwnerChannelTitle": "Lex Fridman",
+                "videoOwnerChannelId": "UCSHZKyawb77ixDdsGog4iWA"
+            },
+            "contentDetails": {"videoId": "0VH1Lim8gL8", "videoPublishedAt": "2020-01-10T16:04:31Z"},
+            "status": {"privacyStatus": "public"}
+        }
+    ],
+    "pageInfo": {"totalResults": 2, "resultsPerPage": 5}
+}
