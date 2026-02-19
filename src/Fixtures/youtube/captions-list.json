@@ -1,0 +1,32 @@
+{
+    "kind": "youtube#captionListResponse",
+    "etag": "sample-captions-list-etag",
+    "items": [
+        {
+            "kind": "youtube#caption",
+            "etag": "sample-caption-1-etag",
+            "id": "caption-sample-1",
+            "snippet": {
+                "videoId": "sample-video-id",
+                "language": "en",
+                "name": "English",
+                "isDraft": false,
+                "isAutoSynced": false,
+                "status": "serving"
+            }
+        },
+        {
+            "kind": "youtube#caption",
+            "etag": "sample-caption-2-etag",
+            "id": "caption-sample-2", 
+            "snippet": {
+                "videoId": "sample-video-id", 
+                "language": "es",
+                "name": "Spanish",
+                "isDraft": true,
+                "isAutoSynced": true,
+                "status": "draft"
+            }
+        }
+    ]
+}
