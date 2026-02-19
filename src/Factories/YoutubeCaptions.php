@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Viewtrender\Youtube\Factories;
 
-use Google\Service\YouTube\Caption;
+use JsonException;
 use Viewtrender\Youtube\Responses\FakeResponse;
 
 class YoutubeCaptions
@@ -13,101 +13,97 @@ class YoutubeCaptions
      * Generate a default captions list response
      *
      * @param array $overrides Optional overrides for the default fixture
-     * @return array
+     * @throws JsonException
      */
-    public static function list(array $overrides = []): array
+    public static function list(array $overrides = []): FakeResponse
     {
-        $defaultFixture = self::loadFixture('captions-list.json');
-        return self::mergeRecursive($defaultFixture, $overrides);
+        $fixture = self::loadFixture();
+
+        return FakeResponse::make(array_merge($fixture, $overrides));
     }
 
     /**
      * Generate a captions list response with custom items
      *
-     * @param array $items Custom caption items
-     * @return array
+     * @param array<int, array<string, mixed>> $captions Custom caption items
+     * @throws JsonException
      */
-    public static function listWithCaptions(array $items): array
+    public static function listWithCaptions(array $captions): FakeResponse
     {
-        $baseResponse = self::list();
-        $baseResponse['items'] = $items;
-        return $baseResponse;
+        $items = array_map(fn (array $caption) => self::buildCaption($caption), $captions);
+
+        $fixture = self::loadFixture();
+        $fixture['items'] = $items;
+
+        return FakeResponse::make($fixture);
     }
 
     /**
      * Generate an empty captions list response
      *
-     * @return array
+     * @throws JsonException
      */
-    public static function empty(): array
+    public static function empty(): FakeResponse
     {
-        return [
-            'kind' => 'youtube#captionListResponse',
-            'etag' => '',
-            'items' => []
-        ];
+        $fixture = self::loadFixture();
+        $fixture['items'] = [];
+
+        return FakeResponse::make($fixture);
     }
 
     /**
      * Generate a single caption item
      *
      * @param array $overrides Optional overrides for the default caption
-     * @return array
      */
     public static function caption(array $overrides = []): array
     {
-        $defaultCaption = [
-            'kind' => 'youtube#caption',
-            'etag' => '',
-            'id' => 'caption-id',
-            'snippet' => [
-                'videoId' => 'video-id',
-                'language' => 'en',
-                'name' => 'English',
-                'isDraft' => false,
-                'isAutoSynced' => false,
-                'status' => 'serving'
-            ]
-        ];
+        return self::buildCaption($overrides);
+    }
 
-        return self::mergeRecursive($defaultCaption, $overrides);
+    /**
+     * Build a caption array from base fixture with overrides
+     *
+     * @throws JsonException
+     */
+    private static function buildCaption(array $overrides = []): array
+    {
+        $fixture = self::loadFixture();
+        $base = $fixture['items'][0];
+
+        return self::mergeRecursive($base, $overrides);
     }
 
     /**
      * Load a fixture from the Fixtures directory
      *
-     * @param string $filename Fixture filename
-     * @return array
+     * @throws JsonException
      */
-    private static function loadFixture(string $filename): array
+    private static function loadFixture(): array
     {
-        $path = __DIR__ . '/../Fixtures/youtube/' . $filename;
-        if (!file_exists($path)) {
-            return self::empty();
+        static $fixture = null;
+
+        if ($fixture === null) {
+            $path = dirname(__DIR__) . '/Fixtures/youtube/captions-list.json';
+            $fixture = json_decode(file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
         }
 
-        $json = file_get_contents($path);
-        return json_decode($json, true);
+        return $fixture;
     }
 
     /**
      * Recursively merge two arrays, replacing lists entirely
-     *
-     * @param array $base Base array
-     * @param array $overrides Overrides array
-     * @return array
      */
     private static function mergeRecursive(array $base, array $overrides): array
     {
         foreach ($overrides as $key => $value) {
-            if (is_array($value)) {
-                $base[$key] = isset($base[$key]) && is_array($base[$key])
-                    ? self::mergeRecursive($base[$key], $value)
-                    : $value;
+            if (is_array($value) && isset($base[$key]) && is_array($base[$key]) && ! array_is_list($value)) {
+                $base[$key] = self::mergeRecursive($base[$key], $value);
             } else {
                 $base[$key] = $value;
             }
         }
+
         return $base;
     }
 }
