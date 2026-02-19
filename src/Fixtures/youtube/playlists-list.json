@@ -1,0 +1,74 @@
+{
+    "kind": "youtube#playlistListResponse",
+    "etag": "fake-etag-playlists",
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#playlist",
+            "etag": "fake-etag-playlist-1",
+            "id": "PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf",
+            "snippet": {
+                "publishedAt": "2020-01-01T00:00:00Z",
+                "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                "title": "Fake Playlist",
+                "description": "This is a fake playlist description for testing purposes.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/fake/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/fake/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/fake/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/fake/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/fake/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Fake Channel",
+                "defaultLanguage": "en",
+                "localized": {
+                    "title": "Fake Playlist",
+                    "description": "This is a fake playlist description for testing purposes."
+                }
+            },
+            "status": {
+                "privacyStatus": "public",
+                "podcastStatus": "disabled"
+            },
+            "contentDetails": {
+                "itemCount": 25
+            },
+            "player": {
+                "embedHtml": "<iframe width=\"480\" height=\"270\" src=\"//www.youtube.com/embed/videoseries?list=PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            },
+            "localizations": {
+                "es": {
+                    "title": "Lista de Reproduccion Falsa",
+                    "description": "Esta es una descripcion de lista de reproduccion falsa para pruebas."
+                },
+                "fr": {
+                    "title": "Fausse Playlist",
+                    "description": "Ceci est une fausse description de playlist pour les tests."
+                }
+            }
+        }
+    ]
+}

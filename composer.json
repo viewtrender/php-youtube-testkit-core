@@ -1,0 +1,29 @@
+{
+    "name": "viewtrender/php-youtube-fake-core",
+    "description": "Core mock layer for Google YouTube APIs",
+    "type": "library",
+    "license": "MIT",
+    "version": "0.1.0",
+    "require": {
+        "php": "^8.3",
+        "google/apiclient": "^2.15",
+        "google/apiclient-services": "*",
+        "guzzlehttp/guzzle": "^7.4",
+        "guzzlehttp/psr7": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Viewtrender\\Youtube\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "google/apiclient-services": true
+        },
+        "google/apiclient-services": [
+            "YouTube",
+            "YouTubeAnalytics",
+            "YouTubeReporting"
+        ]
+    }
+}

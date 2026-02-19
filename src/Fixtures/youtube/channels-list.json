@@ -1,0 +1,101 @@
+{
+    "kind": "youtube#channelListResponse",
+    "etag": "fake-etag-channels",
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#channel",
+            "etag": "fake-etag-channel-1",
+            "id": "UCuAXFkgsw1L7xaCfnd5JJOw",
+            "snippet": {
+                "title": "Fake Channel",
+                "description": "This is a fake channel description for testing purposes.",
+                "customUrl": "@fakechannel",
+                "publishedAt": "2006-03-14T00:00:00Z",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://yt3.ggpht.com/fake-default.jpg",
+                        "width": 88,
+                        "height": 88
+                    },
+                    "medium": {
+                        "url": "https://yt3.ggpht.com/fake-medium.jpg",
+                        "width": 240,
+                        "height": 240
+                    },
+                    "high": {
+                        "url": "https://yt3.ggpht.com/fake-high.jpg",
+                        "width": 800,
+                        "height": 800
+                    }
+                },
+                "defaultLanguage": "en",
+                "localized": {
+                    "title": "Fake Channel",
+                    "description": "This is a fake channel description for testing purposes."
+                },
+                "country": "US"
+            },
+            "contentDetails": {
+                "relatedPlaylists": {
+                    "likes": "LL",
+                    "uploads": "UUuAXFkgsw1L7xaCfnd5JJOw"
+                }
+            },
+            "statistics": {
+                "viewCount": "5000000000",
+                "subscriberCount": "50000000",
+                "hiddenSubscriberCount": false,
+                "videoCount": "500",
+                "commentCount": "100000"
+            },
+            "topicDetails": {
+                "topicIds": ["/m/04rlf"],
+                "topicCategories": ["https://en.wikipedia.org/wiki/Music"]
+            },
+            "status": {
+                "privacyStatus": "public",
+                "isLinked": true,
+                "longUploadsStatus": "allowed",
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+            },
+            "brandingSettings": {
+                "channel": {
+                    "title": "Fake Channel",
+                    "description": "This is a fake channel description for testing purposes.",
+                    "keywords": "fake testing youtube",
+                    "trackingAnalyticsAccountId": "",
+                    "unsubscribedTrailer": "",
+                    "defaultLanguage": "en",
+                    "country": "US"
+                },
+                "image": {},
+                "hints": []
+            },
+            "auditDetails": {
+                "overallGoodStanding": true,
+                "communityGuidelinesGoodStanding": true,
+                "copyrightStrikesGoodStanding": true,
+                "contentIdClaimsGoodStanding": true
+            },
+            "contentOwnerDetails": {
+                "contentOwner": "",
+                "timeLinked": ""
+            },
+            "localizations": {
+                "es": {
+                    "title": "Canal Falso",
+                    "description": "Esta es una descripcion de canal falsa para pruebas."
+                },
+                "fr": {
+                    "title": "Fausse Chaine",
+                    "description": "Ceci est une fausse description de chaine pour les tests."
+                }
+            }
+        }
+    ]
+}

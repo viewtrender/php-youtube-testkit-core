@@ -1,0 +1,245 @@
+{
+    "kind": "youtube#videoListResponse",
+    "etag": "fake-etag-videos",
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#video",
+            "etag": "fake-etag-video-1",
+            "id": "dQw4w9WgXcQ",
+            "snippet": {
+                "publishedAt": "2009-10-25T06:57:33Z",
+                "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                "title": "Fake Video Title",
+                "description": "This is a fake video description for testing purposes.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Fake Channel",
+                "tags": ["fake", "testing"],
+                "categoryId": "10",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                    "title": "Fake Video Title",
+                    "description": "This is a fake video description for testing purposes."
+                },
+                "defaultAudioLanguage": "en"
+            },
+            "contentDetails": {
+                "duration": "PT3M33S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "true",
+                "licensedContent": true,
+                "regionRestriction": {
+                    "allowed": [],
+                    "blocked": []
+                },
+                "contentRating": {
+                    "acbRating": "unrated",
+                    "agcomRating": "unrated",
+                    "anatelRating": "unrated",
+                    "bbfcRating": "unrated",
+                    "bfvcRating": "unrated",
+                    "bmukkRating": "unrated",
+                    "catvRating": "unrated",
+                    "catvfrRating": "unrated",
+                    "cbfcRating": "unrated",
+                    "cccRating": "unrated",
+                    "cceRating": "unrated",
+                    "chfilmRating": "unrated",
+                    "chvrsRating": "unrated",
+                    "cicfRating": "unrated",
+                    "cnaRating": "unrated",
+                    "cncRating": "unrated",
+                    "csaRating": "unrated",
+                    "cscfRating": "unrated",
+                    "czfilmRating": "unrated",
+                    "djctqRating": "unrated",
+                    "djctqRatingReasons": [],
+                    "ecbmctRating": "unrated",
+                    "eefilmRating": "unrated",
+                    "egfilmRating": "unrated",
+                    "eirinRating": "unrated",
+                    "fcbmRating": "unrated",
+                    "fcoRating": "unrated",
+                    "fmocRating": "unrated",
+                    "fpbRating": "unrated",
+                    "fpbRatingReasons": [],
+                    "fskRating": "unrated",
+                    "grfilmRating": "unrated",
+                    "icaaRating": "unrated",
+                    "ifcoRating": "unrated",
+                    "ilfilmRating": "unrated",
+                    "incaaRating": "unrated",
+                    "kfcbRating": "unrated",
+                    "kijkwijzerRating": "unrated",
+                    "kmrbRating": "unrated",
+                    "lsfRating": "unrated",
+                    "mccaaRating": "unrated",
+                    "mccypRating": "unrated",
+                    "mcstRating": "unrated",
+                    "mdaRating": "unrated",
+                    "medietilsynetRating": "unrated",
+                    "mekuRating": "unrated",
+                    "mibacRating": "unrated",
+                    "mocRating": "unrated",
+                    "moctwRating": "unrated",
+                    "mpaaRating": "unrated",
+                    "mpaatRating": "unrated",
+                    "mtrcbRating": "unrated",
+                    "nbcRating": "unrated",
+                    "nbcplRating": "unrated",
+                    "nfrcRating": "unrated",
+                    "nfvcbRating": "unrated",
+                    "nkclvRating": "unrated",
+                    "oflcRating": "unrated",
+                    "pefilmRating": "unrated",
+                    "rcnofRating": "unrated",
+                    "resorteviolenciaRating": "unrated",
+                    "rtcRating": "unrated",
+                    "rteRating": "unrated",
+                    "russiaRating": "unrated",
+                    "skfilmRating": "unrated",
+                    "smaisRating": "unrated",
+                    "smsaRating": "unrated",
+                    "tvpgRating": "unrated",
+                    "ytRating": "unrated"
+                },
+                "projection": "rectangular",
+                "hasCustomThumbnail": true
+            },
+            "status": {
+                "uploadStatus": "processed",
+                "failureReason": "",
+                "rejectionReason": "",
+                "privacyStatus": "public",
+                "publishAt": "2009-10-25T06:57:33Z",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false,
+                "containsSyntheticMedia": false
+            },
+            "paidProductPlacementDetails": {
+                "hasPaidProductPlacement": false
+            },
+            "statistics": {
+                "viewCount": "1500000000",
+                "likeCount": "15000000",
+                "favoriteCount": "0",
+                "commentCount": "3000000"
+            },
+            "player": {
+                "embedHtml": "<iframe width=\"480\" height=\"270\" src=\"//www.youtube.com/embed/dQw4w9WgXcQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                "embedHeight": "270",
+                "embedWidth": "480"
+            },
+            "topicDetails": {
+                "topicIds": ["/m/04rlf"],
+                "relevantTopicIds": ["/m/02vxn"],
+                "topicCategories": ["https://en.wikipedia.org/wiki/Music"]
+            },
+            "recordingDetails": {
+                "recordingDate": "2009-10-25"
+            },
+            "fileDetails": {
+                "fileName": "fake-video.mp4",
+                "fileSize": "50000000",
+                "fileType": "video",
+                "container": "mp4",
+                "videoStreams": [
+                    {
+                        "widthPixels": 1920,
+                        "heightPixels": 1080,
+                        "frameRateFps": 30.0,
+                        "aspectRatio": 1.78,
+                        "codec": "h264",
+                        "bitrateBps": "8000000",
+                        "rotation": "none",
+                        "vendor": ""
+                    }
+                ],
+                "audioStreams": [
+                    {
+                        "channelCount": 2,
+                        "codec": "aac",
+                        "bitrateBps": "128000",
+                        "vendor": ""
+                    }
+                ],
+                "durationMs": "213000",
+                "bitrateBps": "8128000",
+                "creationTime": "2009-10-25T06:57:33Z"
+            },
+            "processingDetails": {
+                "processingStatus": "terminated",
+                "processingProgress": {
+                    "partsTotal": "1000",
+                    "partsProcessed": "1000",
+                    "timeLeftMs": "0"
+                },
+                "processingFailureReason": "",
+                "fileDetailsAvailability": "available",
+                "processingIssuesAvailability": "available",
+                "tagSuggestionsAvailability": "available",
+                "editorSuggestionsAvailability": "available",
+                "thumbnailsAvailability": "available"
+            },
+            "suggestions": {
+                "processingErrors": [],
+                "processingWarnings": [],
+                "processingHints": [],
+                "tagSuggestions": [],
+                "editorSuggestions": []
+            },
+            "liveStreamingDetails": {
+                "actualStartTime": "2009-10-25T06:57:33Z",
+                "actualEndTime": "2009-10-25T07:57:33Z",
+                "scheduledStartTime": "2009-10-25T06:00:00Z",
+                "scheduledEndTime": "2009-10-25T08:00:00Z",
+                "concurrentViewers": "0",
+                "activeLiveChatId": ""
+            },
+            "localizations": {
+                "es": {
+                    "title": "Titulo de Video Falso",
+                    "description": "Esta es una descripcion de video falsa para pruebas."
+                },
+                "fr": {
+                    "title": "Faux Titre de Video",
+                    "description": "Ceci est une fausse description de video pour les tests."
+                }
+            }
+        }
+    ]
+}

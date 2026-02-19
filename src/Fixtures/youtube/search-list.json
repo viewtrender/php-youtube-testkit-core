@@ -1,0 +1,57 @@
+{
+    "kind": "youtube#searchListResponse",
+    "etag": "fake-etag-search",
+    "regionCode": "US",
+    "pageInfo": {
+        "totalResults": 1000000,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#searchResult",
+            "etag": "fake-etag-search-1",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "dQw4w9WgXcQ",
+                "channelId": "",
+                "playlistId": ""
+            },
+            "snippet": {
+                "publishedAt": "2009-10-25T06:57:33Z",
+                "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                "title": "Fake Search Result",
+                "description": "This is a fake search result description for testing purposes.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Fake Channel",
+                "liveBroadcastContent": "none",
+                "publishTime": "2009-10-25T06:57:33Z"
+            }
+        }
+    ]
+}
