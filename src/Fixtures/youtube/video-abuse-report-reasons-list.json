@@ -1,0 +1,147 @@
+{
+    "kind": "youtube#videoAbuseReportReasonListResponse",
+    "etag": "fake-etag-abuse-reasons",
+    "items": [
+        {
+            "kind": "youtube#videoAbuseReportReason",
+            "etag": "fake-etag-reason-1",
+            "id": "S",
+            "snippet": {
+                "label": "Spam or misleading",
+                "secondaryReasons": [
+                    {
+                        "id": "S.1",
+                        "label": "Mass advertising"
+                    },
+                    {
+                        "id": "S.2",
+                        "label": "Misleading text"
+                    },
+                    {
+                        "id": "S.3",
+                        "label": "Scams/fraud"
+                    },
+                    {
+                        "id": "S.4",
+                        "label": "Pharmaceutical drugs"
+                    },
+                    {
+                        "id": "S.5",
+                        "label": "Misleading thumbnail"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "youtube#videoAbuseReportReason",
+            "etag": "fake-etag-reason-2",
+            "id": "V",
+            "snippet": {
+                "label": "Violent or repulsive content",
+                "secondaryReasons": [
+                    {
+                        "id": "V.1",
+                        "label": "Adults fighting"
+                    },
+                    {
+                        "id": "V.2",
+                        "label": "Minors fighting"
+                    },
+                    {
+                        "id": "V.3",
+                        "label": "Shocking content"
+                    },
+                    {
+                        "id": "V.4",
+                        "label": "Animal abuse"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "youtube#videoAbuseReportReason",
+            "etag": "fake-etag-reason-3",
+            "id": "H",
+            "snippet": {
+                "label": "Hateful or abusive content",
+                "secondaryReasons": [
+                    {
+                        "id": "H.1",
+                        "label": "Promotes hatred against protected groups"
+                    },
+                    {
+                        "id": "H.2",
+                        "label": "Cyberbullying"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "youtube#videoAbuseReportReason",
+            "etag": "fake-etag-reason-4",
+            "id": "N",
+            "snippet": {
+                "label": "Harmful or dangerous acts",
+                "secondaryReasons": []
+            }
+        },
+        {
+            "kind": "youtube#videoAbuseReportReason",
+            "etag": "fake-etag-reason-5",
+            "id": "C",
+            "snippet": {
+                "label": "Child abuse",
+                "secondaryReasons": []
+            }
+        },
+        {
+            "kind": "youtube#videoAbuseReportReason",
+            "etag": "fake-etag-reason-6",
+            "id": "P",
+            "snippet": {
+                "label": "Sexual content",
+                "secondaryReasons": []
+            }
+        },
+        {
+            "kind": "youtube#videoAbuseReportReason",
+            "etag": "fake-etag-reason-7",
+            "id": "R",
+            "snippet": {
+                "label": "Infringes my rights",
+                "secondaryReasons": [
+                    {
+                        "id": "R.1",
+                        "label": "Infringes my copyright"
+                    },
+                    {
+                        "id": "R.2",
+                        "label": "Invades my privacy"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "youtube#videoAbuseReportReason",
+            "etag": "fake-etag-reason-8",
+            "id": "Y",
+            "snippet": {
+                "label": "Captions issue",
+                "secondaryReasons": [
+                    {
+                        "id": "Y.1",
+                        "label": "Captions are missing"
+                    },
+                    {
+                        "id": "Y.2",
+                        "label": "Captions don't match video"
+                    },
+                    {
+                        "id": "Y.3",
+                        "label": "Captions are spam or vandalism"
+                    }
+                ]
+            }
+        }
+    ]
+}
