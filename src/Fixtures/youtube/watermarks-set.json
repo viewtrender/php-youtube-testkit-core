@@ -1,0 +1,14 @@
+{
+    "timing": {
+        "type": "offsetFromStart",
+        "offsetMs": "0",
+        "durationMs": "0"
+    },
+    "position": {
+        "type": "corner",
+        "cornerPosition": "topRight"
+    },
+    "imageUrl": "https://www.youtube.com/watch?v=fake-watermark-image",
+    "imageBytes": "fake-image-bytes-base64",
+    "targetChannelId": "UCuAXFkgsw1L7xaCfnd5JJOw"
+}
