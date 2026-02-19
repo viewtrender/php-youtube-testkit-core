@@ -1,5 +1,5 @@
 {
-    "name": "viewtrender/php-youtube-fake-core",
+    "name": "viewtrender/php-youtube-testkit-core",
     "description": "Core mock layer for Google YouTube APIs",
     "type": "library",
     "license": "MIT",
