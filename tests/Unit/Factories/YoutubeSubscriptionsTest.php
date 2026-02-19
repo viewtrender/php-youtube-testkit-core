@@ -88,4 +88,12 @@ class YoutubeSubscriptionsTest extends TestCase
         $this->assertArrayHasKey('title', $subscription['subscriberSnippet']);
         $this->assertArrayHasKey('channelId', $subscription['subscriberSnippet']);
     }
+
+    public function test_subscription_snippet_has_channel_title(): void
+    {
+        $subscription = YoutubeSubscriptions::subscription();
+
+        $this->assertArrayHasKey('channelTitle', $subscription['snippet']);
+        $this->assertSame('Your Channel Name', $subscription['snippet']['channelTitle']);
+    }
 }

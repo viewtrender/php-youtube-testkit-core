@@ -12,6 +12,7 @@
             "id": "fake-subscription-id-1",
             "snippet": {
                 "publishedAt": "2020-01-15T10:30:00Z",
+                "channelTitle": "Your Channel Name",
                 "title": "Subscribed Channel",
                 "description": "This is the description of the channel you subscribed to.",
                 "resourceId": {
