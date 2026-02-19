@@ -1,0 +1,108 @@
+{
+    "kind": "youtube#searchListResponse",
+    "etag": "IdIf4RXTKk8yqnVui2wpHZXcgpc",
+    "nextPageToken": "CAMQAA",
+    "regionCode": "US",
+    "pageInfo": {
+        "totalResults": 1000000,
+        "resultsPerPage": 3
+    },
+    "items": [
+        {
+            "kind": "youtube#searchResult",
+            "etag": "iHElftE99xfUjjALkQkz68LD6GE",
+            "id": {
+                "kind": "youtube#channel",
+                "channelId": "UCfO2GiQwb-cwJTb1CuRSkwg"
+            },
+            "snippet": {
+                "publishedAt": "2020-11-12T15:52:50Z",
+                "channelId": "UCfO2GiQwb-cwJTb1CuRSkwg",
+                "title": "Laravel",
+                "description": "The official YouTube channel of the Laravel PHP framework. We will update you on what's new in the world of Laravel, from the ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://yt3.ggpht.com/PTfpt7NG6STitdtR43_rNZJfT1hvUiAjYeJbGgC6ucaKSwbYOrsRqDOhfgeiibYE13diVOYE6g=s88-c-k-c0xffffffff-no-rj-mo"
+                    },
+                    "medium": {
+                        "url": "https://yt3.ggpht.com/PTfpt7NG6STitdtR43_rNZJfT1hvUiAjYeJbGgC6ucaKSwbYOrsRqDOhfgeiibYE13diVOYE6g=s240-c-k-c0xffffffff-no-rj-mo"
+                    },
+                    "high": {
+                        "url": "https://yt3.ggpht.com/PTfpt7NG6STitdtR43_rNZJfT1hvUiAjYeJbGgC6ucaKSwbYOrsRqDOhfgeiibYE13diVOYE6g=s800-c-k-c0xffffffff-no-rj-mo"
+                    }
+                },
+                "channelTitle": "Laravel",
+                "liveBroadcastContent": "none",
+                "publishTime": "2020-11-12T15:52:50Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "etag": "MR_volWndRoJgshZFz8xh5u_uzk",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "SuIljMDou1o"
+            },
+            "snippet": {
+                "publishedAt": "2026-02-16T15:00:49Z",
+                "channelId": "UCFVteOob_YXJHPaGTqlDV2Q",
+                "title": "99% of devs DON&#39;T UNDERSTAND Laravel...",
+                "description": "Get 40% OFF CodeCrafters: https://app.codecrafters.io/join?via=codehead-01 Git gud at coding with Scrimba ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/SuIljMDou1o/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/SuIljMDou1o/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/SuIljMDou1o/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "CodeHead",
+                "liveBroadcastContent": "none",
+                "publishTime": "2026-02-16T15:00:49Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "etag": "pDFpIJclREF0_Izo3C_bskaJQn8",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "rIfdg_Ot-LI"
+            },
+            "snippet": {
+                "publishedAt": "2022-09-23T15:30:08Z",
+                "channelId": "UCsBjURrPoezykLs9EqgamOA",
+                "title": "Laravel in 100 Seconds",
+                "description": "Laravel is a popular fullstack MVC framework for building web apps with PHP. Learn the fundamentals of Laravel and find out why ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/rIfdg_Ot-LI/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/rIfdg_Ot-LI/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/rIfdg_Ot-LI/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "Fireship",
+                "liveBroadcastContent": "none",
+                "publishTime": "2022-09-23T15:30:08Z"
+            }
+        }
+    ]
+}
