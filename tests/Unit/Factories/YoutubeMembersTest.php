@@ -38,6 +38,16 @@ class YoutubeMembersTest extends TestCase
         $this->assertSame('Fake Member', $member['snippet']['memberDetails']['displayName']);
     }
 
+    public function test_member_has_accessible_levels(): void
+    {
+        $body = json_decode(YoutubeMembers::list()->body, true);
+        $membershipsDetails = $body['items'][0]['snippet']['membershipsDetails'];
+
+        $this->assertArrayHasKey('accessibleLevels', $membershipsDetails);
+        $this->assertIsArray($membershipsDetails['accessibleLevels']);
+        $this->assertContains('level_1', $membershipsDetails['accessibleLevels']);
+    }
+
     public function test_empty_returns_no_items(): void
     {
         $body = json_decode(YoutubeMembers::empty()->body, true);

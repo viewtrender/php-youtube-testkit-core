@@ -20,6 +20,9 @@
                 "membershipsDetails": {
                     "highestAccessibleLevel": "level_1",
                     "highestAccessibleLevelDisplayName": "Bronze Member",
+                    "accessibleLevels": [
+                        "level_1"
+                    ],
                     "membershipsDuration": {
                         "memberSince": "2023-01-15T00:00:00Z",
                         "memberTotalDurationMonths": 12
