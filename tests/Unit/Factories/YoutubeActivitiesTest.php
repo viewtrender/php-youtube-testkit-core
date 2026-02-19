@@ -82,4 +82,29 @@ class YoutubeActivitiesTest extends TestCase
 
         $this->assertSame('custom-video-id', $activity['contentDetails']['upload']['videoId']);
     }
+
+    public function test_activity_has_all_thumbnail_sizes(): void
+    {
+        $body = json_decode(YoutubeActivities::list()->body, true);
+        $thumbnails = $body['items'][0]['snippet']['thumbnails'];
+
+        $this->assertArrayHasKey('default', $thumbnails);
+        $this->assertArrayHasKey('medium', $thumbnails);
+        $this->assertArrayHasKey('high', $thumbnails);
+        $this->assertArrayHasKey('standard', $thumbnails);
+        $this->assertArrayHasKey('maxres', $thumbnails);
+
+        foreach (['default', 'medium', 'high', 'standard', 'maxres'] as $size) {
+            $this->assertArrayHasKey('url', $thumbnails[$size]);
+            $this->assertArrayHasKey('width', $thumbnails[$size]);
+            $this->assertArrayHasKey('height', $thumbnails[$size]);
+        }
+    }
+
+    public function test_list_has_pagination_token(): void
+    {
+        $body = json_decode(YoutubeActivities::list()->body, true);
+
+        $this->assertArrayHasKey('nextPageToken', $body);
+    }
 }
