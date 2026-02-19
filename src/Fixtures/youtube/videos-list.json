@@ -160,14 +160,18 @@
                 "commentCount": "3000000"
             },
             "player": {
-                "embedHtml": "<iframe width=\"480\" height=\"270\" src=\"//www.youtube.com/embed/dQw4w9WgXcQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                "embedHtml": "<iframe width=\"480\" height=\"270\" src=\"//www.youtube.com/embed/dQw4w9WgXcQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
                 "embedHeight": "270",
                 "embedWidth": "480"
             },
             "topicDetails": {
-                "topicIds": ["/m/04rlf"],
-                "relevantTopicIds": ["/m/02vxn"],
-                "topicCategories": ["https://en.wikipedia.org/wiki/Music"]
+                "topicCategories": [
+                    "https://en.wikipedia.org/wiki/Electronic_music",
+                    "https://en.wikipedia.org/wiki/Music",
+                    "https://en.wikipedia.org/wiki/Pop_music",
+                    "https://en.wikipedia.org/wiki/Rhythm_and_blues",
+                    "https://en.wikipedia.org/wiki/Soul_music"
+                ]
             },
             "recordingDetails": {
                 "recordingDate": "2009-10-25"
