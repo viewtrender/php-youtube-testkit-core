@@ -1,0 +1,39 @@
+{
+    "kind": "youtube#membershipsLevelListResponse",
+    "etag": "fake-etag-memberships-levels",
+    "items": [
+        {
+            "kind": "youtube#membershipsLevel",
+            "etag": "fake-etag-level-1",
+            "id": "UC_x5XG1OV2P6uZZ5FSM9Ttw.level-1",
+            "snippet": {
+                "creatorChannelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+                "levelDetails": {
+                    "displayName": "Bronze Supporter"
+                }
+            }
+        },
+        {
+            "kind": "youtube#membershipsLevel",
+            "etag": "fake-etag-level-2",
+            "id": "UC_x5XG1OV2P6uZZ5FSM9Ttw.level-2",
+            "snippet": {
+                "creatorChannelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+                "levelDetails": {
+                    "displayName": "Silver Supporter"
+                }
+            }
+        },
+        {
+            "kind": "youtube#membershipsLevel",
+            "etag": "fake-etag-level-3",
+            "id": "UC_x5XG1OV2P6uZZ5FSM9Ttw.level-3",
+            "snippet": {
+                "creatorChannelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+                "levelDetails": {
+                    "displayName": "Gold Supporter"
+                }
+            }
+        }
+    ]
+}
