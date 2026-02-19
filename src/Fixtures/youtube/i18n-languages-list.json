@@ -1,0 +1,51 @@
+{
+    "kind": "youtube#i18nLanguageListResponse",
+    "etag": "fake-etag-i18n-languages",
+    "items": [
+        {
+            "kind": "youtube#i18nLanguage",
+            "etag": "fake-etag-language-en",
+            "id": "en",
+            "snippet": {
+                "hl": "en",
+                "name": "English"
+            }
+        },
+        {
+            "kind": "youtube#i18nLanguage",
+            "etag": "fake-etag-language-es",
+            "id": "es",
+            "snippet": {
+                "hl": "es",
+                "name": "Spanish"
+            }
+        },
+        {
+            "kind": "youtube#i18nLanguage",
+            "etag": "fake-etag-language-fr",
+            "id": "fr",
+            "snippet": {
+                "hl": "fr",
+                "name": "French"
+            }
+        },
+        {
+            "kind": "youtube#i18nLanguage",
+            "etag": "fake-etag-language-de",
+            "id": "de",
+            "snippet": {
+                "hl": "de",
+                "name": "German"
+            }
+        },
+        {
+            "kind": "youtube#i18nLanguage",
+            "etag": "fake-etag-language-ja",
+            "id": "ja",
+            "snippet": {
+                "hl": "ja",
+                "name": "Japanese"
+            }
+        }
+    ]
+}
