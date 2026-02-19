@@ -1,0 +1,71 @@
+{
+    "kind": "youtube#commentThreadListResponse",
+    "etag": "fake-etag-comments",
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 20
+    },
+    "items": [
+        {
+            "kind": "youtube#commentThread",
+            "etag": "fake-etag-comment-thread-1",
+            "id": "UgzfakeCommentThread123",
+            "snippet": {
+                "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                "videoId": "dQw4w9WgXcQ",
+                "topLevelComment": {
+                    "kind": "youtube#comment",
+                    "etag": "fake-etag-comment-1",
+                    "id": "UgzfakeComment123",
+                    "snippet": {
+                        "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                        "videoId": "dQw4w9WgXcQ",
+                        "textDisplay": "This is a fake comment for testing purposes.",
+                        "textOriginal": "This is a fake comment for testing purposes.",
+                        "authorDisplayName": "Fake User",
+                        "authorProfileImageUrl": "https://yt3.ggpht.com/fake-profile.jpg",
+                        "authorChannelUrl": "http://www.youtube.com/channel/UCfakeAuthorChannel",
+                        "authorChannelId": {
+                            "value": "UCfakeAuthorChannel"
+                        },
+                        "canRate": true,
+                        "viewerRating": "none",
+                        "likeCount": 42,
+                        "publishedAt": "2024-01-15T10:30:00Z",
+                        "updatedAt": "2024-01-15T10:30:00Z"
+                    }
+                },
+                "canReply": true,
+                "totalReplyCount": 2,
+                "isPublic": true
+            },
+            "replies": {
+                "comments": [
+                    {
+                        "kind": "youtube#comment",
+                        "etag": "fake-etag-reply-1",
+                        "id": "UgzfakeReply123",
+                        "snippet": {
+                            "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                            "videoId": "dQw4w9WgXcQ",
+                            "textDisplay": "This is a fake reply.",
+                            "textOriginal": "This is a fake reply.",
+                            "parentId": "UgzfakeComment123",
+                            "authorDisplayName": "Reply User",
+                            "authorProfileImageUrl": "https://yt3.ggpht.com/fake-reply-profile.jpg",
+                            "authorChannelUrl": "http://www.youtube.com/channel/UCfakeReplyChannel",
+                            "authorChannelId": {
+                                "value": "UCfakeReplyChannel"
+                            },
+                            "canRate": true,
+                            "viewerRating": "none",
+                            "likeCount": 5,
+                            "publishedAt": "2024-01-15T11:00:00Z",
+                            "updatedAt": "2024-01-15T11:00:00Z"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
