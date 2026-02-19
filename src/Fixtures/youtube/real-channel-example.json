@@ -1,0 +1,73 @@
+{
+    "kind": "youtube#channelListResponse",
+    "etag": "BCEbiBHcasbmNpeXTjPbPhAZQMU",
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#channel",
+            "etag": "4PYdj0sdVsSGUw_N7b7R0yU1pBM",
+            "id": "UCuAXFkgsw1L7xaCfnd5JJOw",
+            "snippet": {
+                "title": "Rick Astley",
+                "description": "2026 UK & Ireland Reflection Tour🪞😎\n🎟️ Tickets are on sale now. \n\nNew single ‘Waiting On You’ out now. ",
+                "customUrl": "@rickastleyyt",
+                "publishedAt": "2015-02-01T16:32:30Z",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://yt3.ggpht.com/vewxKdtll-rntHAMDPY_Qa6hPac3-J2sCFFUwvGSSR0i7hB4g5rNfF39lCEcjGvsYI0RWx7V1A=s88-c-k-c0x00ffffff-no-rj",
+                        "width": 88,
+                        "height": 88
+                    },
+                    "medium": {
+                        "url": "https://yt3.ggpht.com/vewxKdtll-rntHAMDPY_Qa6hPac3-J2sCFFUwvGSSR0i7hB4g5rNfF39lCEcjGvsYI0RWx7V1A=s240-c-k-c0x00ffffff-no-rj",
+                        "width": 240,
+                        "height": 240
+                    },
+                    "high": {
+                        "url": "https://yt3.ggpht.com/vewxKdtll-rntHAMDPY_Qa6hPac3-J2sCFFUwvGSSR0i7hB4g5rNfF39lCEcjGvsYI0RWx7V1A=s800-c-k-c0x00ffffff-no-rj",
+                        "width": 800,
+                        "height": 800
+                    }
+                },
+                "localized": {
+                    "title": "Rick Astley",
+                    "description": "2026 UK & Ireland Reflection Tour🪞😎\n🎟️ Tickets are on sale now. \n\nNew single ‘Waiting On You’ out now. "
+                },
+                "country": "GB"
+            },
+            "contentDetails": {
+                "relatedPlaylists": {
+                    "likes": "",
+                    "uploads": "UUuAXFkgsw1L7xaCfnd5JJOw"
+                }
+            },
+            "statistics": {
+                "viewCount": "2412509438",
+                "subscriberCount": "4460000",
+                "hiddenSubscriberCount": false,
+                "videoCount": "394"
+            },
+            "status": {
+                "privacyStatus": "public",
+                "isLinked": true,
+                "longUploadsStatus": "longUploadsUnspecified",
+                "madeForKids": false
+            },
+            "brandingSettings": {
+                "channel": {
+                    "title": "Rick Astley",
+                    "description": "2026 UK & Ireland Reflection Tour🪞😎\n🎟️ Tickets are on sale now. \n\nNew single ‘Waiting On You’ out now. ",
+                    "keywords": "Official Rick Astley \"rick astley\" \"never gonna give you up\" \"the best of me\" \"best of me\" \"together forever\" \"cry for help\" \"beautiful life\" \"official video\" \"official audio\" rickroll rickrolled \"rick roll\" \"rick asltey\" \"give up\" meme",
+                    "unsubscribedTrailer": "yi6fWPV6qXg",
+                    "country": "GB"
+                },
+                "image": {
+                    "bannerExternalUrl": "https://yt3.googleusercontent.com/JQaBAEflgcy4KESjXn13mFBpGJLiG1JQBZT5vEmFng_Vcih9VCRaTatWMhJIjru68uf1yCsohw"
+                }
+            }
+        }
+    ]
+}
