@@ -8,8 +8,14 @@
             "id": "caption-sample-1",
             "snippet": {
                 "videoId": "sample-video-id",
+                "lastUpdated": "2025-01-15T10:30:00.000000Z",
+                "trackKind": "standard",
                 "language": "en",
                 "name": "English",
+                "audioTrackType": "unknown",
+                "isCC": false,
+                "isLarge": false,
+                "isEasyReader": false,
                 "isDraft": false,
                 "isAutoSynced": false,
                 "status": "serving"
@@ -18,11 +24,17 @@
         {
             "kind": "youtube#caption",
             "etag": "sample-caption-2-etag",
-            "id": "caption-sample-2", 
+            "id": "caption-sample-2",
             "snippet": {
-                "videoId": "sample-video-id", 
+                "videoId": "sample-video-id",
+                "lastUpdated": "2025-01-14T08:15:00.000000Z",
+                "trackKind": "asr",
                 "language": "es",
                 "name": "Spanish",
+                "audioTrackType": "unknown",
+                "isCC": false,
+                "isLarge": false,
+                "isEasyReader": false,
                 "isDraft": true,
                 "isAutoSynced": true,
                 "status": "draft"

@@ -8,6 +8,13 @@ use Viewtrender\Youtube\Factories\YoutubeGuideCategories;
 use Viewtrender\Youtube\Responses\FakeResponse;
 use Viewtrender\Youtube\Tests\TestCase;
 
+/**
+ * Tests for the YoutubeGuideCategories factory.
+ *
+ * NOTE: The YouTube guideCategories API endpoint has been deprecated by Google
+ * and returns 404 as of 2024. Fixture data is based on historical API responses.
+ * The factory structure was validated against official API documentation.
+ */
 class YoutubeGuideCategoriesTest extends TestCase
 {
     public function test_list_returns_fake_response(): void

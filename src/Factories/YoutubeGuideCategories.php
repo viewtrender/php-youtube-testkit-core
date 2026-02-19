@@ -7,6 +7,16 @@ namespace Viewtrender\Youtube\Factories;
 use JsonException;
 use Viewtrender\Youtube\Responses\FakeResponse;
 
+/**
+ * Factory for generating fake YouTube guideCategories API responses.
+ *
+ * NOTE: The YouTube Data API guideCategories endpoint has been deprecated by Google
+ * and now returns 404 Not Found. This factory remains available for testing legacy
+ * code that may have integrated with this endpoint before its removal.
+ *
+ * @see https://developers.google.com/youtube/v3/docs/guideCategories
+ * @deprecated The underlying YouTube API endpoint is no longer available
+ */
 class YoutubeGuideCategories
 {
     /**
