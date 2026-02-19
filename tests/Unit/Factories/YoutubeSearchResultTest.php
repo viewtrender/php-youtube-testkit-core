@@ -54,6 +54,18 @@ class YoutubeSearchResultTest extends TestCase
 
         $this->assertSame('youtube#channel', $result['id']['kind']);
         $this->assertSame('Custom Result', $result['snippet']['title']);
+        // Non-overridden fields should still be present
+        $this->assertArrayHasKey('channelId', $result['snippet']);
+        $this->assertArrayHasKey('liveBroadcastContent', $result['snippet']);
+    }
+
+    public function test_list_with_overrides(): void
+    {
+        $response = YoutubeSearchResult::list(['etag' => 'custom-etag']);
+
+        $body = json_decode($response->body, true);
+
+        $this->assertSame('custom-etag', $body['etag']);
     }
 
     public function test_list_with_results(): void
