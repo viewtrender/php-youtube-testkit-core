@@ -1,6 +1,7 @@
 {
     "kind": "youtube#activityListResponse",
     "etag": "fake-etag-activities",
+    "nextPageToken": "CAUQAA",
     "pageInfo": {
         "totalResults": 1,
         "resultsPerPage": 5
@@ -30,6 +31,16 @@
                         "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
                         "width": 480,
                         "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
                     }
                 },
                 "channelTitle": "Fake Channel",
