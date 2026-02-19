@@ -1,0 +1,46 @@
+{
+    "kind": "youtube#activityListResponse",
+    "etag": "fake-etag-activities",
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#activity",
+            "etag": "fake-etag-activity-1",
+            "id": "VGhpcyBpcyBhIGZha2UgYWN0aXZpdHk",
+            "snippet": {
+                "publishedAt": "2024-01-15T12:00:00Z",
+                "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                "title": "Fake Video Title",
+                "description": "This is a fake video description for testing purposes.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "Fake Channel",
+                "type": "upload",
+                "groupId": ""
+            },
+            "contentDetails": {
+                "upload": {
+                    "videoId": "dQw4w9WgXcQ"
+                }
+            }
+        }
+    ]
+}
