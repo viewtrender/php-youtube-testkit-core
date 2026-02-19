@@ -1,0 +1,69 @@
+{
+    "kind": "youtube#subscriptionListResponse",
+    "etag": "fake-etag-subscriptions",
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#subscription",
+            "etag": "fake-etag-subscription-1",
+            "id": "fake-subscription-id-1",
+            "snippet": {
+                "publishedAt": "2020-01-15T10:30:00Z",
+                "title": "Subscribed Channel",
+                "description": "This is the description of the channel you subscribed to.",
+                "resourceId": {
+                    "kind": "youtube#channel",
+                    "channelId": "UCfakeChannelId12345"
+                },
+                "channelId": "UCyourChannelId67890",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://yt3.ggpht.com/fake-sub-default.jpg",
+                        "width": 88,
+                        "height": 88
+                    },
+                    "medium": {
+                        "url": "https://yt3.ggpht.com/fake-sub-medium.jpg",
+                        "width": 240,
+                        "height": 240
+                    },
+                    "high": {
+                        "url": "https://yt3.ggpht.com/fake-sub-high.jpg",
+                        "width": 800,
+                        "height": 800
+                    }
+                }
+            },
+            "contentDetails": {
+                "totalItemCount": 150,
+                "newItemCount": 3,
+                "activityType": "all"
+            },
+            "subscriberSnippet": {
+                "title": "Your Channel",
+                "description": "This is your channel description.",
+                "channelId": "UCyourChannelId67890",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://yt3.ggpht.com/your-default.jpg",
+                        "width": 88,
+                        "height": 88
+                    },
+                    "medium": {
+                        "url": "https://yt3.ggpht.com/your-medium.jpg",
+                        "width": 240,
+                        "height": 240
+                    },
+                    "high": {
+                        "url": "https://yt3.ggpht.com/your-high.jpg",
+                        "width": 800,
+                        "height": 800
+                    }
+                }
+            }
+        }
+    ]
+}
