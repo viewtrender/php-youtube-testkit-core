@@ -11,9 +11,17 @@
         "guzzlehttp/guzzle": "^7.4",
         "guzzlehttp/psr7": "^2.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
     "autoload": {
         "psr-4": {
             "Viewtrender\\Youtube\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Viewtrender\\Youtube\\Tests\\": "tests/"
         }
     },
     "config": {
