@@ -1,0 +1,38 @@
+{
+    "kind": "youtube#memberListResponse",
+    "etag": "fake-etag-members",
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#member",
+            "etag": "fake-etag-member-1",
+            "snippet": {
+                "creatorChannelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                "memberDetails": {
+                    "channelId": "UCmember123456789",
+                    "channelUrl": "https://www.youtube.com/channel/UCmember123456789",
+                    "displayName": "Fake Member",
+                    "profileImageUrl": "https://yt3.ggpht.com/fake-member-avatar.jpg"
+                },
+                "membershipsDetails": {
+                    "highestAccessibleLevel": "level_1",
+                    "highestAccessibleLevelDisplayName": "Bronze Member",
+                    "membershipsDuration": {
+                        "memberSince": "2023-01-15T00:00:00Z",
+                        "memberTotalDurationMonths": 12
+                    },
+                    "membershipsDurationAtLevel": [
+                        {
+                            "level": "level_1",
+                            "memberSince": "2023-01-15T00:00:00Z",
+                            "memberTotalDurationMonths": 12
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
