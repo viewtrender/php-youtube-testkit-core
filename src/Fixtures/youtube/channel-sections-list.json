@@ -1,0 +1,63 @@
+{
+    "kind": "youtube#channelSectionListResponse",
+    "etag": "fake-etag-channel-sections",
+    "items": [
+        {
+            "kind": "youtube#channelSection",
+            "etag": "fake-etag-section-1",
+            "id": "UCuAXFkgsw1L7xaCfnd5JJOw.fake-section-1",
+            "snippet": {
+                "type": "singlePlaylist",
+                "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                "title": "Featured Videos",
+                "position": 0,
+                "defaultLanguage": "en",
+                "localized": {
+                    "title": "Featured Videos"
+                },
+                "style": "verticalList"
+            },
+            "contentDetails": {
+                "playlists": [
+                    "PLfake123456789012"
+                ]
+            }
+        },
+        {
+            "kind": "youtube#channelSection",
+            "etag": "fake-etag-section-2",
+            "id": "UCuAXFkgsw1L7xaCfnd5JJOw.fake-section-2",
+            "snippet": {
+                "type": "multiplePlaylists",
+                "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                "title": "Popular Playlists",
+                "position": 1,
+                "defaultLanguage": "en",
+                "localized": {
+                    "title": "Popular Playlists"
+                },
+                "style": "horizontalRow"
+            },
+            "contentDetails": {
+                "playlists": [
+                    "PLfake111111111111",
+                    "PLfake222222222222",
+                    "PLfake333333333333"
+                ]
+            }
+        },
+        {
+            "kind": "youtube#channelSection",
+            "etag": "fake-etag-section-3",
+            "id": "UCuAXFkgsw1L7xaCfnd5JJOw.fake-section-3",
+            "snippet": {
+                "type": "recentActivity",
+                "channelId": "UCuAXFkgsw1L7xaCfnd5JJOw",
+                "title": "",
+                "position": 2,
+                "style": "verticalList"
+            },
+            "contentDetails": {}
+        }
+    ]
+}
