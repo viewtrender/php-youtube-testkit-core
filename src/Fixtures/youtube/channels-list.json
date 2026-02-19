@@ -41,7 +41,7 @@
             },
             "contentDetails": {
                 "relatedPlaylists": {
-                    "likes": "LL",
+                    "likes": "",
                     "uploads": "UUuAXFkgsw1L7xaCfnd5JJOw"
                 }
             },
@@ -49,8 +49,7 @@
                 "viewCount": "5000000000",
                 "subscriberCount": "50000000",
                 "hiddenSubscriberCount": false,
-                "videoCount": "500",
-                "commentCount": "100000"
+                "videoCount": "500"
             },
             "topicDetails": {
                 "topicIds": ["/m/04rlf"],
@@ -68,13 +67,12 @@
                     "title": "Fake Channel",
                     "description": "This is a fake channel description for testing purposes.",
                     "keywords": "fake testing youtube",
-                    "trackingAnalyticsAccountId": "",
-                    "unsubscribedTrailer": "",
-                    "defaultLanguage": "en",
+                    "unsubscribedTrailer": "dQw4w9WgXcQ",
                     "country": "US"
                 },
-                "image": {},
-                "hints": []
+                "image": {
+                    "bannerExternalUrl": "https://yt3.googleusercontent.com/fake-banner"
+                }
             },
             "auditDetails": {
                 "overallGoodStanding": true,
@@ -82,10 +80,7 @@
                 "copyrightStrikesGoodStanding": true,
                 "contentIdClaimsGoodStanding": true
             },
-            "contentOwnerDetails": {
-                "contentOwner": "",
-                "timeLinked": ""
-            },
+            "contentOwnerDetails": [],
             "localizations": {
                 "es": {
                     "title": "Canal Falso",
