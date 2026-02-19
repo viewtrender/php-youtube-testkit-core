@@ -1,0 +1,42 @@
+{
+    "kind": "youtube#guideCategoryListResponse",
+    "etag": "fake-etag-guide-categories",
+    "items": [
+        {
+            "kind": "youtube#guideCategory",
+            "etag": "fake-etag-guide-category-1",
+            "id": "GCQmVzdCBvZiBZb3VUdWJl",
+            "snippet": {
+                "channelId": "UCBR8-60-B28hp2BmDPdntcQ",
+                "title": "Best of YouTube"
+            }
+        },
+        {
+            "kind": "youtube#guideCategory",
+            "etag": "fake-etag-guide-category-2",
+            "id": "GCTXVzaWM",
+            "snippet": {
+                "channelId": "UCBR8-60-B28hp2BmDPdntcQ",
+                "title": "Music"
+            }
+        },
+        {
+            "kind": "youtube#guideCategory",
+            "etag": "fake-etag-guide-category-3",
+            "id": "GCR2FtaW5n",
+            "snippet": {
+                "channelId": "UCBR8-60-B28hp2BmDPdntcQ",
+                "title": "Gaming"
+            }
+        },
+        {
+            "kind": "youtube#guideCategory",
+            "etag": "fake-etag-guide-category-4",
+            "id": "GCU3BvcnRz",
+            "snippet": {
+                "channelId": "UCBR8-60-B28hp2BmDPdntcQ",
+                "title": "Sports"
+            }
+        }
+    ]
+}
