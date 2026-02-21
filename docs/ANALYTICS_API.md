@@ -116,7 +116,7 @@
 | `insightTrafficSourceType` | STRING | Traffic source | See Traffic Sources below |
 | `subscribedStatus` | STRING | Subscription status | `SUBSCRIBED`, `UNSUBSCRIBED` |
 | `liveOrOnDemand` | STRING | Live vs VOD | `LIVE`, `ON_DEMAND` |
-| `creatorContentType` | STRING | Content type | `VIDEO_ON_DEMAND`, `SHORTS`, `LIVE_STREAM`, `STORY` |
+| `creatorContentType` | STRING | Content type | `VIDEO_ON_DEMAND`, `SHORTS`, `LIVE_STREAM`, `STORY` (Note: NOT "UPLOAD"/"SHORT") |
 
 ---
 

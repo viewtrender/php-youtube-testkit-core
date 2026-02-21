@@ -7,9 +7,9 @@
   ],
   "rows": [
     ["dQw4w9WgXcQ", "LIVE_STREAM", 50000],
-    ["jNQXAC9IVRw", "UPLOAD", 180000],
-    ["9bZkp7q19f0", "UPLOAD", 150000],
-    ["kJQP7kiw5Fk", "SHORT", 120000],
-    ["tAGnKpE4NCI", "UPLOAD", 100000]
+    ["jNQXAC9IVRw", "VIDEO_ON_DEMAND", 180000],
+    ["9bZkp7q19f0", "VIDEO_ON_DEMAND", 150000],
+    ["kJQP7kiw5Fk", "SHORTS", 120000],
+    ["tAGnKpE4NCI", "VIDEO_ON_DEMAND", 100000]
   ]
 }
