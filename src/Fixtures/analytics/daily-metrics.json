@@ -1,0 +1,19 @@
+{
+  "kind": "youtubeAnalytics#resultTable",
+  "columnHeaders": [
+    {"name": "day", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "views", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "estimatedMinutesWatched", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "subscribersGained", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "subscribersLost", "columnType": "METRIC", "dataType": "INTEGER"}
+  ],
+  "rows": [
+    ["2024-01-01", 50000, 25000, 100, 5],
+    ["2024-01-02", 52000, 26000, 105, 4],
+    ["2024-01-03", 48000, 24000, 98, 6],
+    ["2024-01-04", 55000, 27500, 110, 3],
+    ["2024-01-05", 53000, 26500, 102, 7],
+    ["2024-01-06", 60000, 30000, 120, 4],
+    ["2024-01-07", 58000, 29000, 115, 5]
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "youtubeAnalytics#resultTable",
+  "columnHeaders": [
+    {"name": "views", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "estimatedMinutesWatched", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "averageViewDuration", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "subscribersGained", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "subscribersLost", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "likes", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "dislikes", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "shares", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "comments", "columnType": "METRIC", "dataType": "INTEGER"}
+  ],
+  "rows": [
+    [1500000, 750000, 300, 2500, 150, 45000, 800, 3200, 8500]
+  ]
+}

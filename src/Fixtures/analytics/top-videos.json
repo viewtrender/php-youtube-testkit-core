@@ -1,0 +1,18 @@
+{
+  "kind": "youtubeAnalytics#resultTable",
+  "columnHeaders": [
+    {"name": "video", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "views", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "estimatedMinutesWatched", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "averageViewDuration", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "likes", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "comments", "columnType": "METRIC", "dataType": "INTEGER"}
+  ],
+  "rows": [
+    ["dQw4w9WgXcQ", 250000, 125000, 300, 8500, 1200],
+    ["jNQXAC9IVRw", 180000, 90000, 300, 6200, 890],
+    ["9bZkp7q19f0", 150000, 75000, 300, 5100, 720],
+    ["kJQP7kiw5Fk", 120000, 60000, 300, 4200, 580],
+    ["tAGnKpE4NCI", 100000, 50000, 300, 3500, 490]
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "youtubeAnalytics#resultTable",
+  "columnHeaders": [
+    {"name": "video", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "creatorContentType", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "views", "columnType": "METRIC", "dataType": "INTEGER"}
+  ],
+  "rows": [
+    ["dQw4w9WgXcQ", "LIVE_STREAM", 50000],
+    ["jNQXAC9IVRw", "UPLOAD", 180000],
+    ["9bZkp7q19f0", "UPLOAD", 150000],
+    ["kJQP7kiw5Fk", "SHORT", 120000],
+    ["tAGnKpE4NCI", "UPLOAD", 100000]
+  ]
+}

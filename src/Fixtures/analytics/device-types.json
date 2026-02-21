@@ -1,0 +1,14 @@
+{
+  "kind": "youtubeAnalytics#resultTable",
+  "columnHeaders": [
+    {"name": "deviceType", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "views", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "estimatedMinutesWatched", "columnType": "METRIC", "dataType": "INTEGER"}
+  ],
+  "rows": [
+    ["MOBILE", 750000, 375000],
+    ["DESKTOP", 450000, 225000],
+    ["TABLET", 200000, 100000],
+    ["TV", 100000, 50000]
+  ]
+}

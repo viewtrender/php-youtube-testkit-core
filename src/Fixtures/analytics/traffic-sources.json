@@ -1,0 +1,17 @@
+{
+  "kind": "youtubeAnalytics#resultTable",
+  "columnHeaders": [
+    {"name": "insightTrafficSourceType", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "views", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "estimatedMinutesWatched", "columnType": "METRIC", "dataType": "INTEGER"}
+  ],
+  "rows": [
+    ["SUGGESTED", 500000, 250000],
+    ["SEARCH", 300000, 150000],
+    ["BROWSE", 200000, 100000],
+    ["EXTERNAL", 150000, 75000],
+    ["PLAYLIST", 100000, 50000],
+    ["NOTIFICATION", 80000, 40000],
+    ["END_SCREEN", 70000, 35000]
+  ]
+}

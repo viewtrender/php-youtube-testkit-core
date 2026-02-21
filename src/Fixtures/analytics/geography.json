@@ -1,0 +1,20 @@
+{
+  "kind": "youtubeAnalytics#resultTable",
+  "columnHeaders": [
+    {"name": "country", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "views", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "estimatedMinutesWatched", "columnType": "METRIC", "dataType": "INTEGER"}
+  ],
+  "rows": [
+    ["US", 450000, 225000],
+    ["IN", 280000, 140000],
+    ["BR", 180000, 90000],
+    ["GB", 120000, 60000],
+    ["CA", 100000, 50000],
+    ["DE", 85000, 42500],
+    ["AU", 70000, 35000],
+    ["JP", 60000, 30000],
+    ["FR", 55000, 27500],
+    ["MX", 50000, 25000]
+  ]
+}
