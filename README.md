@@ -34,62 +34,157 @@ composer require --dev viewtrender/php-youtube-testkit-core
 ### YouTube Data API
 
 ```php
+<?php
+
+namespace Tests\Unit;
+
+use PHPUnit\Framework\TestCase;
 use Viewtrender\Youtube\YoutubeDataApi;
 use Viewtrender\Youtube\Factories\YoutubeVideo;
 
-YoutubeDataApi::fake([
-    YoutubeVideo::list(),
-]);
+class VideoServiceTest extends TestCase
+{
+    protected function tearDown(): void
+    {
+        YoutubeDataApi::reset();
+        parent::tearDown();
+    }
 
-$youtube = YoutubeDataApi::youtube();
-$response = $youtube->videos->listVideos('snippet,statistics', ['id' => 'dQw4w9WgXcQ']);
+    public function test_it_fetches_video_details(): void
+    {
+        YoutubeDataApi::fake([
+            YoutubeVideo::listWithVideos([
+                [
+                    'id' => 'dQw4w9WgXcQ',
+                    'snippet' => [
+                        'title' => 'Never Gonna Give You Up',
+                        'channelTitle' => 'Rick Astley',
+                    ],
+                    'statistics' => [
+                        'viewCount' => '1500000000',
+                        'likeCount' => '15000000',
+                    ],
+                ],
+            ]),
+        ]);
 
-YoutubeDataApi::assertListedVideos();
-YoutubeDataApi::reset();
+        $youtube = YoutubeDataApi::youtube();
+        $response = $youtube->videos->listVideos('snippet,statistics', ['id' => 'dQw4w9WgXcQ']);
+
+        $video = $response->getItems()[0];
+        $this->assertSame('Never Gonna Give You Up', $video->getSnippet()->getTitle());
+        $this->assertSame('1500000000', $video->getStatistics()->getViewCount());
+
+        YoutubeDataApi::assertListedVideos();
+        YoutubeDataApi::assertSentCount(1);
+    }
+}
 ```
 
 ### YouTube Analytics API
 
 ```php
+<?php
+
+namespace Tests\Unit;
+
+use PHPUnit\Framework\TestCase;
 use Viewtrender\Youtube\YoutubeAnalyticsApi;
 use Viewtrender\Youtube\Factories\AnalyticsQueryResponse;
 
-YoutubeAnalyticsApi::fake([
-    AnalyticsQueryResponse::channelOverview([
-        'views' => 500000,
-        'estimatedMinutesWatched' => 1500000,
-    ]),
-]);
+class ChannelAnalyticsTest extends TestCase
+{
+    protected function tearDown(): void
+    {
+        YoutubeAnalyticsApi::reset();
+        parent::tearDown();
+    }
 
-$analytics = YoutubeAnalyticsApi::youtubeAnalytics();
-$response = $analytics->reports->query([
-    'ids' => 'channel==MINE',
-    'startDate' => '2024-01-01',
-    'endDate' => '2024-01-31',
-    'metrics' => 'views,estimatedMinutesWatched',
-]);
+    public function test_it_fetches_channel_overview_metrics(): void
+    {
+        YoutubeAnalyticsApi::fake([
+            AnalyticsQueryResponse::channelOverview([
+                'views' => 500000,
+                'estimatedMinutesWatched' => 1500000,
+                'subscribersGained' => 1000,
+            ]),
+        ]);
 
-YoutubeAnalyticsApi::assertSentCount(1);
-YoutubeAnalyticsApi::reset();
+        $analytics = YoutubeAnalyticsApi::youtubeAnalytics();
+        $response = $analytics->reports->query([
+            'ids' => 'channel==MINE',
+            'startDate' => '2024-01-01',
+            'endDate' => '2024-01-31',
+            'metrics' => 'views,estimatedMinutesWatched,subscribersGained',
+        ]);
+
+        $row = $response->getRows()[0];
+        $this->assertSame(500000, $row[0]);
+        $this->assertSame(1500000, $row[1]);
+        $this->assertSame(1000, $row[2]);
+
+        YoutubeAnalyticsApi::assertSentCount(1);
+    }
+}
 ```
 
 ### YouTube Reporting API
 
 ```php
+<?php
+
+namespace Tests\Unit;
+
+use PHPUnit\Framework\TestCase;
 use Viewtrender\Youtube\YoutubeReportingApi;
 use Viewtrender\Youtube\Factories\ReportingJob;
+use Viewtrender\Youtube\Factories\ReportingReport;
+use Viewtrender\Youtube\Factories\ReportingMedia;
 
-YoutubeReportingApi::fake([
-    ReportingJob::list([
-        ['id' => 'job-1', 'reportTypeId' => 'channel_basic_a2'],
-    ]),
-]);
+class ReportingPipelineTest extends TestCase
+{
+    protected function tearDown(): void
+    {
+        YoutubeReportingApi::reset();
+        parent::tearDown();
+    }
 
-$reporting = YoutubeReportingApi::youtubeReporting();
-$response = $reporting->jobs->listJobs();
+    public function test_it_lists_reporting_jobs(): void
+    {
+        YoutubeReportingApi::fake([
+            ReportingJob::list([
+                ['id' => 'job-1', 'reportTypeId' => 'channel_basic_a2', 'name' => 'Daily Stats'],
+                ['id' => 'job-2', 'reportTypeId' => 'channel_demographics_a1', 'name' => 'Demographics'],
+            ]),
+        ]);
 
-YoutubeReportingApi::assertSentCount(1);
-YoutubeReportingApi::reset();
+        $reporting = YoutubeReportingApi::youtubeReporting();
+        $response = $reporting->jobs->listJobs();
+
+        $this->assertCount(2, $response->getJobs());
+        $this->assertSame('channel_basic_a2', $response->getJobs()[0]->getReportTypeId());
+
+        YoutubeReportingApi::assertSentCount(1);
+    }
+
+    public function test_it_downloads_report_csv(): void
+    {
+        $csvContent = "date,channel_id,views,watch_time_minutes\n" .
+                      "2024-01-01,UC123,1000,5000\n" .
+                      "2024-01-02,UC123,1200,6000\n";
+
+        YoutubeReportingApi::fake([
+            ReportingMedia::download($csvContent),
+        ]);
+
+        $reporting = YoutubeReportingApi::youtubeReporting();
+        $response = $reporting->media->download('resource-name');
+
+        $this->assertStringContainsString('views,watch_time_minutes', $response->getBody()->getContents());
+
+        YoutubeReportingApi::assertSentCount(1);
+    }
+}
 ```
 
 ---
@@ -361,74 +456,6 @@ Register a callback that runs whenever `fake()` is called:
 YoutubeDataApi::registerContainerSwap(function () {
     $container->set(YouTube::class, new YouTube(YoutubeDataApi::client()));
 });
-```
-
----
-
-## Full Test Example
-
-```php
-use Viewtrender\Youtube\YoutubeDataApi;
-use Viewtrender\Youtube\YoutubeAnalyticsApi;
-use Viewtrender\Youtube\YoutubeReportingApi;
-use Viewtrender\Youtube\Factories\YoutubeVideo;
-use Viewtrender\Youtube\Factories\AnalyticsQueryResponse;
-use Viewtrender\Youtube\Factories\ReportingJob;
-
-class MyYoutubeTest extends \PHPUnit\Framework\TestCase
-{
-    protected function tearDown(): void
-    {
-        YoutubeDataApi::reset();
-        YoutubeAnalyticsApi::reset();
-        YoutubeReportingApi::reset();
-        parent::tearDown();
-    }
-
-    public function test_fetches_video_details(): void
-    {
-        YoutubeDataApi::fake([
-            YoutubeVideo::listWithVideos([
-                ['id' => 'abc123', 'snippet' => ['title' => 'Test Video']],
-            ]),
-        ]);
-
-        $youtube = YoutubeDataApi::youtube();
-        $response = $youtube->videos->listVideos('snippet', ['id' => 'abc123']);
-
-        $this->assertSame('Test Video', $response->getItems()[0]->getSnippet()->getTitle());
-        YoutubeDataApi::assertListedVideos();
-    }
-
-    public function test_fetches_channel_analytics(): void
-    {
-        YoutubeAnalyticsApi::fake([
-            AnalyticsQueryResponse::channelOverview(['views' => 500000]),
-        ]);
-
-        $analytics = YoutubeAnalyticsApi::youtubeAnalytics();
-        $response = $analytics->reports->query([
-            'ids' => 'channel==MINE',
-            'metrics' => 'views',
-        ]);
-
-        $this->assertSame(500000, $response->getRows()[0][0]);
-    }
-
-    public function test_lists_reporting_jobs(): void
-    {
-        YoutubeReportingApi::fake([
-            ReportingJob::list([
-                ['id' => 'job-1', 'reportTypeId' => 'channel_basic_a2'],
-            ]),
-        ]);
-
-        $reporting = YoutubeReportingApi::youtubeReporting();
-        $jobs = $reporting->jobs->listJobs();
-
-        $this->assertCount(1, $jobs->getJobs());
-    }
-}
 ```
 
 ## License
