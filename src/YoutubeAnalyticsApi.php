@@ -13,7 +13,7 @@ use Viewtrender\Youtube\Responses\FakeResponse;
 
 class YoutubeAnalyticsApi
 {
-    private static ?YoutubeAnalyticsClient $instance = null;
+    private static ?YoutubeClient $instance = null;
 
     private static ?Closure $containerSwap = null;
 
@@ -25,9 +25,9 @@ class YoutubeAnalyticsApi
     /**
      * @param  array<ResponseInterface|FakeResponse>  $responses
      */
-    public static function fake(array $responses = []): YoutubeAnalyticsClient
+    public static function fake(array $responses = []): YoutubeClient
     {
-        static::$instance = new YoutubeAnalyticsClient($responses);
+        static::$instance = new YoutubeClient($responses);
 
         if (static::$containerSwap !== null) {
             (static::$containerSwap)();
@@ -103,7 +103,7 @@ class YoutubeAnalyticsApi
         static::$instance = null;
     }
 
-    public static function instance(): ?YoutubeAnalyticsClient
+    public static function instance(): ?YoutubeClient
     {
         return static::$instance;
     }

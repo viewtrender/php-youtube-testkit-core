@@ -8,7 +8,7 @@ use Google\Service\YouTubeAnalytics;
 use Viewtrender\Youtube\Factories\AnalyticsQueryResponse;
 use Viewtrender\Youtube\Tests\TestCase;
 use Viewtrender\Youtube\YoutubeAnalyticsApi;
-use Viewtrender\Youtube\YoutubeAnalyticsClient;
+use Viewtrender\Youtube\YoutubeClient;
 
 class YoutubeAnalyticsApiTest extends TestCase
 {
@@ -28,7 +28,7 @@ class YoutubeAnalyticsApiTest extends TestCase
     {
         $client = YoutubeAnalyticsApi::fake();
 
-        $this->assertInstanceOf(YoutubeAnalyticsClient::class, $client);
+        $this->assertInstanceOf(YoutubeClient::class, $client);
     }
 
     public function test_analytics_returns_service(): void
@@ -47,7 +47,7 @@ class YoutubeAnalyticsApiTest extends TestCase
             AnalyticsQueryResponse::dailyMetrics(),
         ]);
 
-        $this->assertInstanceOf(YoutubeAnalyticsClient::class, YoutubeAnalyticsApi::instance());
+        $this->assertInstanceOf(YoutubeClient::class, YoutubeAnalyticsApi::instance());
     }
 
     public function test_assert_sent_count(): void
