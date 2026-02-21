@@ -1,0 +1,29 @@
+{
+  "reportTypes": [
+    {
+      "id": "channel_basic_a2",
+      "name": "Channel basic stats",
+      "systemManaged": false,
+      "deprecateTime": null
+    },
+    {
+      "id": "channel_demographics_a1", 
+      "name": "Channel demographics",
+      "systemManaged": false,
+      "deprecateTime": null
+    },
+    {
+      "id": "content_owner_asset_a1",
+      "name": "Content owner asset stats",
+      "systemManaged": false,
+      "deprecateTime": null
+    },
+    {
+      "id": "playlist_basic_a1",
+      "name": "Playlist basic stats", 
+      "systemManaged": false,
+      "deprecateTime": null
+    }
+  ],
+  "nextPageToken": null
+}

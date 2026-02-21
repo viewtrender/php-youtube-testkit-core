@@ -1,0 +1,4 @@
+date,channel_id,views,watch_time_minutes,subscribers_gained,subscribers_lost
+2024-01-01,UCtest123,1500,750,10,2
+2024-01-01,UCtest456,3200,1800,25,5
+2024-01-01,UCtest789,850,425,5,1

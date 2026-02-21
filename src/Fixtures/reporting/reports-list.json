@@ -1,0 +1,23 @@
+{
+  "reports": [
+    {
+      "id": "fake_report_123",
+      "jobId": "fake_job_12345",
+      "startTime": "2024-01-01T00:00:00Z",
+      "endTime": "2024-01-02T00:00:00Z",
+      "createTime": "2024-01-02T01:00:00Z",
+      "downloadUrl": "https://youtubereporting.googleapis.com/v1/media/reports/123",
+      "jobExpireTime": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "fake_report_456",
+      "jobId": "fake_job_12345",
+      "startTime": "2024-01-02T00:00:00Z",
+      "endTime": "2024-01-03T00:00:00Z",
+      "createTime": "2024-01-03T01:00:00Z",
+      "downloadUrl": "https://youtubereporting.googleapis.com/v1/media/reports/456",
+      "jobExpireTime": "2025-01-01T00:00:00Z"
+    }
+  ],
+  "nextPageToken": null
+}

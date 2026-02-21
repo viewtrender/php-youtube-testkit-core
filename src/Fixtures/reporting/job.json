@@ -1,0 +1,8 @@
+{
+  "id": "fake_job_12345",
+  "reportTypeId": "channel_basic_a2",
+  "name": "Test Channel Stats Job",
+  "createTime": "2024-01-01T00:00:00Z",
+  "expireTime": "2025-01-01T00:00:00Z",
+  "systemManaged": false
+}
