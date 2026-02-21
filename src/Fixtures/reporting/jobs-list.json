@@ -1,0 +1,21 @@
+{
+  "jobs": [
+    {
+      "id": "fake_job_12345",
+      "reportTypeId": "channel_basic_a2",
+      "name": "Test Channel Stats Job",
+      "createTime": "2024-01-01T00:00:00Z",
+      "expireTime": "2025-01-01T00:00:00Z",
+      "systemManaged": false
+    },
+    {
+      "id": "fake_job_67890",
+      "reportTypeId": "channel_demographics_a1",
+      "name": "Test Demographics Job", 
+      "createTime": "2024-01-01T00:00:00Z",
+      "expireTime": "2025-01-01T00:00:00Z",
+      "systemManaged": false
+    }
+  ],
+  "nextPageToken": null
+}
