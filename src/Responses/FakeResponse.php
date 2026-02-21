@@ -74,4 +74,11 @@ class FakeResponse
         );
     }
 
+    /**
+     * @return array<string, string>
+     */
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
 }

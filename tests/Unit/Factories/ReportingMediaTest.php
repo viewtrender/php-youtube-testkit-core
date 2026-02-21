@@ -33,7 +33,7 @@ class ReportingMediaTest extends TestCase
         $headers = $response->getHeaders();
 
         $this->assertArrayHasKey('Content-Type', $headers);
-        $this->assertContains('text/csv', $headers['Content-Type']);
+        $this->assertStringContainsString('text/csv', $headers['Content-Type']);
     }
 
     public function test_custom_csv(): void
@@ -42,7 +42,7 @@ class ReportingMediaTest extends TestCase
         $response = ReportingMedia::customCsv($csvContent);
 
         $this->assertSame($csvContent, $response->body);
-        $this->assertContains('text/csv', $response->getHeaders()['Content-Type']);
+        $this->assertStringContainsString('text/csv', $response->getHeaders()['Content-Type']);
     }
 
     public function test_download_response(): void
