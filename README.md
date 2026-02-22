@@ -242,6 +242,65 @@ YoutubeDataApi::assertSentCount(2);
 YoutubeDataApi::assertNothingSent();
 ```
 
+### Pagination
+
+Test code that paginates through multi-page API responses.
+
+#### Auto-Generated Pages
+
+Use `paginated()` to generate multiple pages of fake items:
+
+```php
+use Viewtrender\Youtube\Factories\YoutubePlaylistItems;
+
+// Generate 3 pages with 5 items each
+YoutubeDataApi::fake([
+    ...YoutubePlaylistItems::paginated(pages: 3, perPage: 5),
+]);
+
+// Test pagination logic
+$youtube = YoutubeDataApi::youtube();
+$pageToken = null;
+$allItems = [];
+
+do {
+    $response = $youtube->playlistItems->listPlaylistItems(
+        'snippet',
+        ['playlistId' => 'PLxxx', 'pageToken' => $pageToken]
+    );
+    $allItems = array_merge($allItems, $response->getItems());
+    $pageToken = $response->getNextPageToken();
+} while ($pageToken !== null);
+
+$this->assertCount(15, $allItems);
+```
+
+#### Explicit Page Contents
+
+Use `pages()` for full control over each page's items:
+
+```php
+use Viewtrender\Youtube\Factories\YoutubePlaylistItems;
+
+YoutubeDataApi::fake([
+    ...YoutubePlaylistItems::pages([
+        // Page 1
+        [
+            ['snippet' => ['title' => 'First Video', 'resourceId' => ['videoId' => 'vid1']]],
+            ['snippet' => ['title' => 'Second Video', 'resourceId' => ['videoId' => 'vid2']]],
+        ],
+        // Page 2 (last page)
+        [
+            ['snippet' => ['title' => 'Third Video', 'resourceId' => ['videoId' => 'vid3']]],
+        ],
+    ]),
+]);
+```
+
+Pagination is available on `YoutubePlaylistItems` and `YoutubeActivities`.
+
+See [docs/DATA_API.md](docs/DATA_API.md) for complete reference.
+
 ---
 
 ## YouTube Analytics API
