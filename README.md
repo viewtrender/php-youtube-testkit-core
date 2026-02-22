@@ -244,7 +244,18 @@ YoutubeDataApi::assertNothingSent();
 
 ### Pagination
 
-Test code that paginates through multi-page API responses.
+Test code that paginates through multi-page API responses. Pagination is provided by the `HasPagination` trait on **`YoutubePlaylistItems`** and **`YoutubeActivities`** — the Data API endpoints that return `nextPageToken`.
+
+Both methods return `array<FakeResponse>` — spread them into `fake([])`:
+
+| Method | Purpose |
+|--------|---------|
+| `paginated(pages, perPage)` | Auto-generate items with fixture defaults |
+| `pages(array)` | Full control over each page's items |
+
+Each factory also provides a named item constructor:
+- `YoutubePlaylistItems::playlistItem(array $overrides = [])`
+- `YoutubeActivities::activity(array $overrides = [])`
 
 #### Auto-Generated Pages
 
@@ -277,27 +288,43 @@ $this->assertCount(15, $allItems);
 
 #### Explicit Page Contents
 
-Use `pages()` for full control over each page's items:
+Use `pages()` for full control over each page's items. You can pass raw override arrays or use the named constructors:
 
 ```php
 use Viewtrender\Youtube\Factories\YoutubePlaylistItems;
 
+// Using raw arrays (merged with fixture defaults)
 YoutubeDataApi::fake([
     ...YoutubePlaylistItems::pages([
-        // Page 1
+        // Page 1 — includes nextPageToken
         [
             ['snippet' => ['title' => 'First Video', 'resourceId' => ['videoId' => 'vid1']]],
             ['snippet' => ['title' => 'Second Video', 'resourceId' => ['videoId' => 'vid2']]],
         ],
-        // Page 2 (last page)
+        // Page 2 — last page, no nextPageToken
         [
             ['snippet' => ['title' => 'Third Video', 'resourceId' => ['videoId' => 'vid3']]],
         ],
     ]),
 ]);
-```
 
-Pagination is available on `YoutubePlaylistItems` and `YoutubeActivities`.
+// Using named constructors
+YoutubeDataApi::fake([
+    ...YoutubeActivities::pages([
+        [
+            YoutubeActivities::activity([
+                'snippet' => ['title' => 'Uploaded: New Video', 'type' => 'upload'],
+                'contentDetails' => ['upload' => ['videoId' => 'vid1']],
+            ]),
+        ],
+        [
+            YoutubeActivities::activity([
+                'snippet' => ['title' => 'Liked: Some Video', 'type' => 'like'],
+            ]),
+        ],
+    ]),
+]);
+```
 
 See [docs/DATA_API.md](docs/DATA_API.md) for complete reference.
 

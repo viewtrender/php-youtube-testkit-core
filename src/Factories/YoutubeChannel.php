@@ -30,6 +30,7 @@ class YoutubeChannel
         $fixture = self::loadFixture();
         $fixture['items'] = $items;
         $fixture['pageInfo']['totalResults'] = count($items);
+        unset($fixture['nextPageToken']);
 
         return FakeResponse::make($fixture);
     }
@@ -50,6 +51,7 @@ class YoutubeChannel
         $fixture = self::loadFixture();
         $fixture['items'] = [];
         $fixture['pageInfo']['totalResults'] = 0;
+        unset($fixture['nextPageToken']);
 
         return FakeResponse::make($fixture);
     }

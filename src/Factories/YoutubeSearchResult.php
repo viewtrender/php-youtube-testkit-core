@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Viewtrender\Youtube\Factories;
 
 use JsonException;
+use Viewtrender\Youtube\Concerns\HasPagination;
 use Viewtrender\Youtube\Responses\FakeResponse;
 
 class YoutubeSearchResult
 {
+    use HasPagination;
     /**
      * @throws JsonException
      */
@@ -30,6 +32,7 @@ class YoutubeSearchResult
         $fixture = self::loadFixture();
         $fixture['items'] = $items;
         $fixture['pageInfo']['totalResults'] = count($items);
+        unset($fixture['nextPageToken']);
 
         return FakeResponse::make($fixture);
     }
@@ -47,6 +50,7 @@ class YoutubeSearchResult
         $fixture = self::loadFixture();
         $fixture['items'] = [];
         $fixture['pageInfo']['totalResults'] = 0;
+        unset($fixture['nextPageToken']);
 
         return FakeResponse::make($fixture);
     }
@@ -60,6 +64,14 @@ class YoutubeSearchResult
         $base = $fixture['items'][0];
 
         return self::mergeRecursive($base, $overrides);
+    }
+
+    /**
+     * @throws JsonException
+     */
+    protected static function buildSingleItem(array $overrides = []): array
+    {
+        return self::buildSearchResult($overrides);
     }
 
     private static function loadFixture(): array
