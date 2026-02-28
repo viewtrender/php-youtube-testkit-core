@@ -2,16 +2,26 @@
   "kind": "youtubeAnalytics#resultTable",
   "columnHeaders": [
     {"name": "insightTrafficSourceType", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "creatorContentType", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "day", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "liveOrOnDemand", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "subscribedStatus", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "engagedViews", "columnType": "METRIC", "dataType": "INTEGER"},
     {"name": "views", "columnType": "METRIC", "dataType": "INTEGER"},
-    {"name": "estimatedMinutesWatched", "columnType": "METRIC", "dataType": "INTEGER"}
+    {"name": "estimatedMinutesWatched", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "videoThumbnailImpressions", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "videoThumbnailImpressionsClickRate", "columnType": "METRIC", "dataType": "FLOAT"}
   ],
   "rows": [
-    ["RELATED_VIDEO", 500000, 250000],
-    ["YT_SEARCH", 300000, 150000],
-    ["SUBSCRIBER", 200000, 100000],
-    ["EXT_URL", 150000, 75000],
-    ["PLAYLIST", 100000, 50000],
-    ["NOTIFICATION", 80000, 40000],
-    ["END_SCREEN", 70000, 35000]
+    ["RELATED_VIDEO",  "SHORTS",      "2026-02-01", "ON_DEMAND", "SUBSCRIBED",   450000, 500000, 250000, 2000000, 0.25],
+    ["RELATED_VIDEO",  "VIDEO_ON_DEMAND", "2026-02-01", "ON_DEMAND", "UNSUBSCRIBED", 180000, 200000, 100000, 800000,  0.25],
+    ["YT_SEARCH",      "VIDEO_ON_DEMAND", "2026-02-01", "ON_DEMAND", "SUBSCRIBED",   120000, 150000,  75000, 600000,  0.25],
+    ["YT_SEARCH",      "SHORTS",      "2026-02-02", "ON_DEMAND", "UNSUBSCRIBED", 135000, 150000,  75000, 500000,  0.30],
+    ["SUBSCRIBER",     "VIDEO_ON_DEMAND", "2026-02-02", "ON_DEMAND", "SUBSCRIBED",   180000, 200000, 100000, 400000,  0.50],
+    ["EXT_URL",        "VIDEO_ON_DEMAND", "2026-02-02", "ON_DEMAND", "UNSUBSCRIBED",  90000, 150000,  75000, 300000,  0.50],
+    ["PLAYLIST",       "VIDEO_ON_DEMAND", "2026-02-03", "ON_DEMAND", "SUBSCRIBED",    80000, 100000,  50000, 250000,  0.40],
+    ["NOTIFICATION",   "SHORTS",      "2026-02-03", "ON_DEMAND", "SUBSCRIBED",    64000,  80000,  40000, 200000,  0.40],
+    ["END_SCREEN",     "VIDEO_ON_DEMAND", "2026-02-03", "ON_DEMAND", "UNSUBSCRIBED",  56000,  70000,  35000, 150000,  0.47],
+    ["RELATED_VIDEO",  "LIVE",        "2026-02-03", "LIVE",      "SUBSCRIBED",    36000,  40000,  20000, 100000,  0.40]
   ]
 }

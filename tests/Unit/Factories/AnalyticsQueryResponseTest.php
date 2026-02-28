@@ -92,6 +92,135 @@ class AnalyticsQueryResponseTest extends TestCase
         $this->assertContains('views', $metricNames);
     }
 
+    public function test_traffic_sources_no_args_returns_all_columns_and_rows(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSources();
+        $body = json_decode($response->body, true);
+
+        $this->assertCount(10, $body['columnHeaders']);
+        $this->assertCount(10, $body['rows']);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertSame([
+            'insightTrafficSourceType',
+            'creatorContentType',
+            'day',
+            'liveOrOnDemand',
+            'subscribedStatus',
+            'engagedViews',
+            'views',
+            'estimatedMinutesWatched',
+            'videoThumbnailImpressions',
+            'videoThumbnailImpressionsClickRate',
+        ], $names);
+    }
+
+    public function test_traffic_sources_filter_dimensions_only(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSources(
+            dimensions: ['day'],
+        );
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+
+        // insightTrafficSourceType is always included + requested day + all 5 metrics
+        $this->assertSame([
+            'insightTrafficSourceType',
+            'day',
+            'engagedViews',
+            'views',
+            'estimatedMinutesWatched',
+            'videoThumbnailImpressions',
+            'videoThumbnailImpressionsClickRate',
+        ], $names);
+
+        $this->assertCount(10, $body['rows']);
+    }
+
+    public function test_traffic_sources_filter_metrics_only(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSources(
+            metrics: ['views', 'estimatedMinutesWatched'],
+        );
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+
+        // All 5 dimensions + 2 requested metrics
+        $this->assertSame([
+            'insightTrafficSourceType',
+            'creatorContentType',
+            'day',
+            'liveOrOnDemand',
+            'subscribedStatus',
+            'views',
+            'estimatedMinutesWatched',
+        ], $names);
+
+        $this->assertCount(10, $body['rows']);
+    }
+
+    public function test_traffic_sources_filter_both_dimensions_and_metrics(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSources(
+            dimensions: ['creatorContentType'],
+            metrics: ['views'],
+        );
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+
+        // insightTrafficSourceType (always) + creatorContentType + views
+        $this->assertSame([
+            'insightTrafficSourceType',
+            'creatorContentType',
+            'views',
+        ], $names);
+
+        $this->assertCount(10, $body['rows']);
+    }
+
+    public function test_traffic_sources_row_data_aligns_with_filtered_columns(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSources(
+            dimensions: ['subscribedStatus'],
+            metrics: ['engagedViews'],
+        );
+        $body = json_decode($response->body, true);
+
+        // Columns: insightTrafficSourceType, subscribedStatus, engagedViews
+        $this->assertCount(3, $body['columnHeaders']);
+
+        // First row from fixture: RELATED_VIDEO, SUBSCRIBED, 450000
+        $firstRow = $body['rows'][0];
+        $this->assertCount(3, $firstRow);
+        $this->assertSame('RELATED_VIDEO', $firstRow[0]);
+        $this->assertSame('SUBSCRIBED', $firstRow[1]);
+        $this->assertSame(450000, $firstRow[2]);
+
+        // Last row from fixture: RELATED_VIDEO, SUBSCRIBED, 36000
+        $lastRow = $body['rows'][9];
+        $this->assertCount(3, $lastRow);
+        $this->assertSame('RELATED_VIDEO', $lastRow[0]);
+        $this->assertSame('SUBSCRIBED', $lastRow[1]);
+        $this->assertSame(36000, $lastRow[2]);
+    }
+
+    public function test_traffic_sources_overrides_applied_after_filtering(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSources(
+            dimensions: [],
+            metrics: ['views'],
+            overrides: ['rows' => [['DIRECT', 99999]]],
+        );
+        $body = json_decode($response->body, true);
+
+        // Overrides replace rows entirely
+        $this->assertCount(1, $body['rows']);
+        $this->assertSame(['DIRECT', 99999], $body['rows'][0]);
+    }
+
     public function test_demographics(): void
     {
         $response = AnalyticsQueryResponse::demographics();
