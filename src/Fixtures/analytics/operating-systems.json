@@ -1,0 +1,129 @@
+{
+    "kind": "youtubeAnalytics#resultTable",
+    "columnHeaders": [
+        {
+            "name": "operatingSystem",
+            "columnType": "DIMENSION",
+            "dataType": "STRING"
+        },
+        {
+            "name": "views",
+            "columnType": "METRIC",
+            "dataType": "INTEGER"
+        },
+        {
+            "name": "estimatedMinutesWatched",
+            "columnType": "METRIC",
+            "dataType": "INTEGER"
+        },
+        {
+            "name": "engagedViews",
+            "columnType": "METRIC",
+            "dataType": "INTEGER"
+        }
+    ],
+    "rows": [
+        [
+            "WINDOWS",
+            12396,
+            21068,
+            11287
+        ],
+        [
+            "ANDROID",
+            12250,
+            13540,
+            9295
+        ],
+        [
+            "IOS",
+            4708,
+            6870,
+            3562
+        ],
+        [
+            "MACINTOSH",
+            505,
+            970,
+            431
+        ],
+        [
+            "SMART_TV",
+            391,
+            1096,
+            345
+        ],
+        [
+            "WEBOS",
+            196,
+            485,
+            183
+        ],
+        [
+            "CHROME_OS",
+            159,
+            465,
+            138
+        ],
+        [
+            "LINUX",
+            152,
+            470,
+            143
+        ],
+        [
+            "ROKUOS",
+            147,
+            675,
+            134
+        ],
+        [
+            "AMAZON_FIREOS",
+            97,
+            746,
+            88
+        ],
+        [
+            "PLAYSTATION",
+            83,
+            233,
+            69
+        ],
+        [
+            "XBOX",
+            71,
+            173,
+            61
+        ],
+        [
+            "NINTENDO_SWITCH",
+            39,
+            48,
+            31
+        ],
+        [
+            "VIDAA",
+            30,
+            65,
+            26
+        ],
+        [
+            "CHROMECAST",
+            19,
+            213,
+            19
+        ],
+        [
+            "APPLE_TVOS",
+            17,
+            214,
+            15
+        ],
+        [
+            "TIZEN",
+            3,
+            13,
+            3
+        ]
+    ]
+}

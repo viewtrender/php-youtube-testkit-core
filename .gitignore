@@ -7,3 +7,5 @@ composer.lock
 *.swp
 *.swo
 .DS_Store
+.env
+tools/.youtube-oauth-token

@@ -89,6 +89,28 @@ class AnalyticsQueryResponse
     }
 
     /**
+     * Traffic source detail breakdown
+     *
+     * The fixture contains the maximal column set (2 dimensions + 5 metrics).
+     * Pass $dimensions and/or $metrics to filter down to only the columns you need.
+     * insightTrafficSourceDetail is always included as it's required by the API spec.
+     *
+     * @param  string[]  $dimensions  Dimension column names to include (insightTrafficSourceDetail always included)
+     * @param  string[]  $metrics     Metric column names to include (all if empty)
+     * @param  array     $overrides   Raw overrides applied after column filtering
+     *
+     * @throws JsonException
+     */
+    public static function trafficSourceDetail(array $dimensions = [], array $metrics = [], array $overrides = []): FakeResponse
+    {
+        $fixture = self::loadFixture('traffic-source-detail');
+
+        $fixture = self::filterColumns($fixture, $dimensions, $metrics, 'insightTrafficSourceDetail');
+
+        return FakeResponse::make(array_merge($fixture, $overrides));
+    }
+
+    /**
      * Demographics breakdown by age group and gender
      *
      * @throws JsonException
@@ -120,6 +142,93 @@ class AnalyticsQueryResponse
     public static function deviceTypes(array $overrides = []): FakeResponse
     {
         $fixture = self::loadFixture('device-types');
+
+        return FakeResponse::make(array_merge($fixture, $overrides));
+    }
+
+    /**
+     * Playback locations breakdown
+     *
+     * @param  string[]  $dimensions  Dimension column names to include (insightPlaybackLocationType always included)
+     * @param  string[]  $metrics     Metric column names to include (all if empty)
+     * @param  array     $overrides   Raw overrides applied after column filtering
+     *
+     * @throws JsonException
+     */
+    public static function playbackLocations(array $dimensions = [], array $metrics = [], array $overrides = []): FakeResponse
+    {
+        $fixture = self::loadFixture('playback-locations');
+
+        $fixture = self::filterColumns($fixture, $dimensions, $metrics, 'insightPlaybackLocationType');
+
+        return FakeResponse::make(array_merge($fixture, $overrides));
+    }
+
+    /**
+     * Operating system breakdown
+     *
+     * @param  string[]  $dimensions  Dimension column names to include (operatingSystem always included)
+     * @param  string[]  $metrics     Metric column names to include (all if empty)
+     * @param  array     $overrides   Raw overrides applied after column filtering
+     *
+     * @throws JsonException
+     */
+    public static function operatingSystems(array $dimensions = [], array $metrics = [], array $overrides = []): FakeResponse
+    {
+        $fixture = self::loadFixture('operating-systems');
+
+        $fixture = self::filterColumns($fixture, $dimensions, $metrics, 'operatingSystem');
+
+        return FakeResponse::make(array_merge($fixture, $overrides));
+    }
+
+    /**
+     * Sharing service breakdown
+     *
+     * @param  string[]  $dimensions  Dimension column names to include (sharingService always included)
+     * @param  string[]  $metrics     Metric column names to include (all if empty)
+     * @param  array     $overrides   Raw overrides applied after column filtering
+     *
+     * @throws JsonException
+     */
+    public static function sharingService(array $dimensions = [], array $metrics = [], array $overrides = []): FakeResponse
+    {
+        $fixture = self::loadFixture('sharing-service');
+
+        $fixture = self::filterColumns($fixture, $dimensions, $metrics, 'sharingService');
+
+        return FakeResponse::make(array_merge($fixture, $overrides));
+    }
+
+    /**
+     * Device type + operating system combo breakdown
+     *
+     * @param  string[]  $dimensions  Dimension column names to include (deviceType always included)
+     * @param  string[]  $metrics     Metric column names to include (all if empty)
+     * @param  array     $overrides   Raw overrides applied after column filtering
+     *
+     * @throws JsonException
+     */
+    public static function deviceOperatingSystem(array $dimensions = [], array $metrics = [], array $overrides = []): FakeResponse
+    {
+        $fixture = self::loadFixture('device-os-combo');
+
+        $fixture = self::filterColumns($fixture, $dimensions, $metrics, 'deviceType');
+
+        return FakeResponse::make(array_merge($fixture, $overrides));
+    }
+
+    /**
+     * Audience retention curve (per-video)
+     *
+     * Returns 100 data points (elapsedVideoTimeRatio from 0.01 to 1.00)
+     * with audienceWatchRatio and relativeRetentionPerformance.
+     *
+     * @throws JsonException
+     */
+    public static function audienceRetention(array $overrides = []): FakeResponse
+    {
+        $fixture = self::loadFixture('audience-retention');
 
         return FakeResponse::make(array_merge($fixture, $overrides));
     }

@@ -1,0 +1,57 @@
+{
+    "kind": "youtubeAnalytics#resultTable",
+    "columnHeaders": [
+        {
+            "name": "insightPlaybackLocationType",
+            "columnType": "DIMENSION",
+            "dataType": "STRING"
+        },
+        {
+            "name": "engagedViews",
+            "columnType": "METRIC",
+            "dataType": "INTEGER"
+        },
+        {
+            "name": "views",
+            "columnType": "METRIC",
+            "dataType": "INTEGER"
+        },
+        {
+            "name": "estimatedMinutesWatched",
+            "columnType": "METRIC",
+            "dataType": "INTEGER"
+        }
+    ],
+    "rows": [
+        [
+            "WATCH",
+            18933,
+            18933,
+            45112
+        ],
+        [
+            "SHORTS_FEED",
+            6103,
+            11545,
+            1643
+        ],
+        [
+            "BROWSE",
+            743,
+            743,
+            808
+        ],
+        [
+            "EMBEDDED",
+            100,
+            100,
+            186
+        ],
+        [
+            "CHANNEL",
+            56,
+            56,
+            40
+        ]
+    ]
+}

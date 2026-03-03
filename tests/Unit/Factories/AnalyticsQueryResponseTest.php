@@ -221,6 +221,128 @@ class AnalyticsQueryResponseTest extends TestCase
         $this->assertSame(['DIRECT', 99999], $body['rows'][0]);
     }
 
+    public function test_traffic_source_detail_no_args_returns_all_columns_and_rows(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSourceDetail();
+        $body = json_decode($response->body, true);
+
+        $this->assertCount(7, $body['columnHeaders']);
+        $this->assertCount(10, $body['rows']);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertSame([
+            'insightTrafficSourceDetail',
+            'creatorContentType',
+            'engagedViews',
+            'views',
+            'estimatedMinutesWatched',
+            'videoThumbnailImpressions',
+            'videoThumbnailImpressionsClickRate',
+        ], $names);
+    }
+
+    public function test_traffic_source_detail_filter_dimensions_only(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSourceDetail(
+            dimensions: ['creatorContentType'],
+        );
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+
+        // insightTrafficSourceDetail always included + requested creatorContentType + all 5 metrics
+        $this->assertSame([
+            'insightTrafficSourceDetail',
+            'creatorContentType',
+            'engagedViews',
+            'views',
+            'estimatedMinutesWatched',
+            'videoThumbnailImpressions',
+            'videoThumbnailImpressionsClickRate',
+        ], $names);
+
+        $this->assertCount(10, $body['rows']);
+    }
+
+    public function test_traffic_source_detail_filter_metrics_only(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSourceDetail(
+            metrics: ['views', 'estimatedMinutesWatched'],
+        );
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+
+        // All 2 dimensions + 2 requested metrics
+        $this->assertSame([
+            'insightTrafficSourceDetail',
+            'creatorContentType',
+            'views',
+            'estimatedMinutesWatched',
+        ], $names);
+
+        $this->assertCount(10, $body['rows']);
+    }
+
+    public function test_traffic_source_detail_filter_both_dimensions_and_metrics(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSourceDetail(
+            dimensions: ['creatorContentType'],
+            metrics: ['views'],
+        );
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+
+        // insightTrafficSourceDetail (always) + creatorContentType + views
+        $this->assertSame([
+            'insightTrafficSourceDetail',
+            'creatorContentType',
+            'views',
+        ], $names);
+
+        $this->assertCount(10, $body['rows']);
+    }
+
+    public function test_traffic_source_detail_row_data_aligns_with_filtered_columns(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSourceDetail(
+            metrics: ['engagedViews'],
+        );
+        $body = json_decode($response->body, true);
+
+        // Columns: insightTrafficSourceDetail, creatorContentType, engagedViews
+        $this->assertCount(3, $body['columnHeaders']);
+
+        // First row: "how to edit videos", VIDEO_ON_DEMAND, 45000
+        $firstRow = $body['rows'][0];
+        $this->assertCount(3, $firstRow);
+        $this->assertSame('how to edit videos', $firstRow[0]);
+        $this->assertSame('VIDEO_ON_DEMAND', $firstRow[1]);
+        $this->assertSame(45000, $firstRow[2]);
+
+        // Last row: "TrueView in-stream", VIDEO_ON_DEMAND, 3000
+        $lastRow = $body['rows'][9];
+        $this->assertCount(3, $lastRow);
+        $this->assertSame('TrueView in-stream', $lastRow[0]);
+        $this->assertSame('VIDEO_ON_DEMAND', $lastRow[1]);
+        $this->assertSame(3000, $lastRow[2]);
+    }
+
+    public function test_traffic_source_detail_overrides_applied_after_filtering(): void
+    {
+        $response = AnalyticsQueryResponse::trafficSourceDetail(
+            dimensions: [],
+            metrics: ['views'],
+            overrides: ['rows' => [['my search term', 'VIDEO_ON_DEMAND', 99999]]],
+        );
+        $body = json_decode($response->body, true);
+
+        // Overrides replace rows entirely
+        $this->assertCount(1, $body['rows']);
+        $this->assertSame(['my search term', 'VIDEO_ON_DEMAND', 99999], $body['rows'][0]);
+    }
+
     public function test_demographics(): void
     {
         $response = AnalyticsQueryResponse::demographics();
@@ -273,6 +395,256 @@ class AnalyticsQueryResponseTest extends TestCase
         $this->assertContains('creatorContentType', $metricNames);
         $this->assertContains('views', $metricNames);
     }
+
+    // --- Playback Locations ---
+
+    public function test_playback_locations(): void
+    {
+        $response = AnalyticsQueryResponse::playbackLocations();
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertContains('insightPlaybackLocationType', $names);
+        $this->assertContains('views', $names);
+        $this->assertContains('estimatedMinutesWatched', $names);
+        $this->assertGreaterThan(0, count($body['rows']));
+    }
+
+    public function test_playback_locations_no_args_returns_all_columns(): void
+    {
+        $response = AnalyticsQueryResponse::playbackLocations();
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertSame([
+            'insightPlaybackLocationType',
+            'engagedViews',
+            'views',
+            'estimatedMinutesWatched',
+        ], $names);
+
+        $this->assertCount(5, $body['rows']);
+    }
+
+    public function test_playback_locations_filter_metrics(): void
+    {
+        $response = AnalyticsQueryResponse::playbackLocations(
+            metrics: ['views'],
+        );
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertSame(['insightPlaybackLocationType', 'views'], $names);
+        $this->assertCount(5, $body['rows']);
+
+        // First row should be WATCH with the most views
+        $this->assertSame('WATCH', $body['rows'][0][0]);
+    }
+
+    public function test_playback_locations_overrides(): void
+    {
+        $response = AnalyticsQueryResponse::playbackLocations(
+            overrides: ['rows' => [['EMBEDDED', 500, 500, 100]]],
+        );
+        $body = json_decode($response->body, true);
+
+        $this->assertCount(1, $body['rows']);
+        $this->assertSame('EMBEDDED', $body['rows'][0][0]);
+    }
+
+    // --- Operating Systems ---
+
+    public function test_operating_systems(): void
+    {
+        $response = AnalyticsQueryResponse::operatingSystems();
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertContains('operatingSystem', $names);
+        $this->assertContains('views', $names);
+        $this->assertGreaterThan(0, count($body['rows']));
+    }
+
+    public function test_operating_systems_no_args_returns_all_columns(): void
+    {
+        $response = AnalyticsQueryResponse::operatingSystems();
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertSame([
+            'operatingSystem',
+            'views',
+            'estimatedMinutesWatched',
+            'engagedViews',
+        ], $names);
+
+        $this->assertCount(17, $body['rows']);
+
+        // First row should be WINDOWS (most views)
+        $this->assertSame('WINDOWS', $body['rows'][0][0]);
+    }
+
+    public function test_operating_systems_filter_metrics(): void
+    {
+        $response = AnalyticsQueryResponse::operatingSystems(
+            metrics: ['views'],
+        );
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertSame(['operatingSystem', 'views'], $names);
+        $this->assertCount(17, $body['rows']);
+    }
+
+    // --- Sharing Service ---
+
+    public function test_sharing_service(): void
+    {
+        $response = AnalyticsQueryResponse::sharingService();
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertContains('sharingService', $names);
+        $this->assertContains('shares', $names);
+        $this->assertGreaterThan(0, count($body['rows']));
+    }
+
+    public function test_sharing_service_no_args_returns_all_columns(): void
+    {
+        $response = AnalyticsQueryResponse::sharingService();
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertSame(['sharingService', 'shares'], $names);
+
+        $this->assertCount(7, $body['rows']);
+
+        // First row should be COPY_PASTE (most shares)
+        $this->assertSame('COPY_PASTE', $body['rows'][0][0]);
+    }
+
+    public function test_sharing_service_overrides(): void
+    {
+        $response = AnalyticsQueryResponse::sharingService(
+            overrides: ['rows' => [['TWITTER', 42]]],
+        );
+        $body = json_decode($response->body, true);
+
+        $this->assertCount(1, $body['rows']);
+        $this->assertSame(['TWITTER', 42], $body['rows'][0]);
+    }
+
+    // --- Device + Operating System Combo ---
+
+    public function test_device_operating_system(): void
+    {
+        $response = AnalyticsQueryResponse::deviceOperatingSystem();
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertContains('deviceType', $names);
+        $this->assertContains('operatingSystem', $names);
+        $this->assertContains('views', $names);
+        $this->assertGreaterThan(0, count($body['rows']));
+    }
+
+    public function test_device_operating_system_no_args_returns_all_columns(): void
+    {
+        $response = AnalyticsQueryResponse::deviceOperatingSystem();
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertSame([
+            'deviceType',
+            'operatingSystem',
+            'engagedViews',
+            'views',
+            'estimatedMinutesWatched',
+        ], $names);
+
+        $this->assertCount(21, $body['rows']);
+
+        // First row should be DESKTOP + WINDOWS (most views)
+        $this->assertSame('DESKTOP', $body['rows'][0][0]);
+        $this->assertSame('WINDOWS', $body['rows'][0][1]);
+    }
+
+    public function test_device_operating_system_filter_metrics(): void
+    {
+        $response = AnalyticsQueryResponse::deviceOperatingSystem(
+            metrics: ['views'],
+        );
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertSame(['deviceType', 'operatingSystem', 'views'], $names);
+        $this->assertCount(21, $body['rows']);
+    }
+
+    public function test_device_operating_system_filter_dimensions(): void
+    {
+        $response = AnalyticsQueryResponse::deviceOperatingSystem(
+            dimensions: ['operatingSystem'],
+        );
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        // deviceType always included + operatingSystem + all metrics
+        $this->assertSame([
+            'deviceType',
+            'operatingSystem',
+            'engagedViews',
+            'views',
+            'estimatedMinutesWatched',
+        ], $names);
+    }
+
+    // --- Audience Retention ---
+
+    public function test_audience_retention(): void
+    {
+        $response = AnalyticsQueryResponse::audienceRetention();
+        $body = json_decode($response->body, true);
+
+        $names = array_column($body['columnHeaders'], 'name');
+        $this->assertContains('elapsedVideoTimeRatio', $names);
+        $this->assertContains('audienceWatchRatio', $names);
+        $this->assertContains('relativeRetentionPerformance', $names);
+
+        // 100 data points
+        $this->assertCount(100, $body['rows']);
+    }
+
+    public function test_audience_retention_data_types(): void
+    {
+        $response = AnalyticsQueryResponse::audienceRetention();
+        $body = json_decode($response->body, true);
+
+        // All columns should be FLOAT
+        foreach ($body['columnHeaders'] as $header) {
+            $this->assertSame('FLOAT', $header['dataType'], "Column {$header['name']} should be FLOAT");
+        }
+
+        // First data point should be at 0.01
+        $this->assertSame(0.01, $body['rows'][0][0]);
+
+        // Values should be floats
+        $this->assertIsFloat($body['rows'][0][1]); // audienceWatchRatio
+        $this->assertIsFloat($body['rows'][0][2]); // relativeRetentionPerformance
+    }
+
+    public function test_audience_retention_overrides(): void
+    {
+        $response = AnalyticsQueryResponse::audienceRetention([
+            'rows' => [[0.5, 0.45, 1.0]],
+        ]);
+        $body = json_decode($response->body, true);
+
+        $this->assertCount(1, $body['rows']);
+        $this->assertSame(0.5, $body['rows'][0][0]);
+    }
+
+    // --- Overrides ---
 
     public function test_custom_overrides(): void
     {

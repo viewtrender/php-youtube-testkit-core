@@ -1,0 +1,24 @@
+{
+  "kind": "youtubeAnalytics#resultTable",
+  "columnHeaders": [
+    {"name": "insightTrafficSourceDetail", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "creatorContentType", "columnType": "DIMENSION", "dataType": "STRING"},
+    {"name": "engagedViews", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "views", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "estimatedMinutesWatched", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "videoThumbnailImpressions", "columnType": "METRIC", "dataType": "INTEGER"},
+    {"name": "videoThumbnailImpressionsClickRate", "columnType": "METRIC", "dataType": "FLOAT"}
+  ],
+  "rows": [
+    ["how to edit videos",                  "VIDEO_ON_DEMAND", 45000, 50000, 25000, 200000, 0.15],
+    ["best camera 2026",                    "VIDEO_ON_DEMAND", 36000, 42000, 21000, 180000, 0.12],
+    ["shorts editing tips",                 "SHORTS",          28000, 35000, 10500, 150000, 0.10],
+    ["dQw4w9WgXcQ",                         "VIDEO_ON_DEMAND", 22000, 28000, 14000, 120000, 0.09],
+    ["abc123XYZ90",                         "VIDEO_ON_DEMAND", 18000, 22000, 11000, 100000, 0.08],
+    ["xYz987AbC12",                         "SHORTS",          14000, 18000,  5400,  85000, 0.07],
+    ["https://reddit.com/r/videography",    "VIDEO_ON_DEMAND", 10000, 14000,  7000,  60000, 0.06],
+    ["https://twitter.com",                 "VIDEO_ON_DEMAND",  7500, 10000,  5000,  45000, 0.05],
+    ["PLabc123def456",                      "VIDEO_ON_DEMAND",  5000,  7000,  3500,  30000, 0.04],
+    ["TrueView in-stream",                  "VIDEO_ON_DEMAND",  3000,  4500,  2250,  20000, 0.02]
+  ]
+}

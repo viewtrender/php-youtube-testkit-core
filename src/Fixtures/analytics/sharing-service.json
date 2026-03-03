@@ -1,0 +1,45 @@
+{
+    "kind": "youtubeAnalytics#resultTable",
+    "columnHeaders": [
+        {
+            "name": "sharingService",
+            "columnType": "DIMENSION",
+            "dataType": "STRING"
+        },
+        {
+            "name": "shares",
+            "columnType": "METRIC",
+            "dataType": "INTEGER"
+        }
+    ],
+    "rows": [
+        [
+            "COPY_PASTE",
+            27
+        ],
+        [
+            "WHATS_APP",
+            10
+        ],
+        [
+            "OTHER",
+            9
+        ],
+        [
+            "INSTAGRAM",
+            2
+        ],
+        [
+            "FACEBOOK",
+            1
+        ],
+        [
+            "TEXT_MESSAGE",
+            1
+        ],
+        [
+            "SAMSUNG_MESSAGES",
+            1
+        ]
+    ]
+}

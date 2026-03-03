@@ -16,6 +16,8 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/bootstrap.php';
+
 const TOKEN_FILE = __DIR__ . '/.youtube-oauth-token';
 const CALLBACK_PORT = 8765;
 const REDIRECT_URI = 'http://localhost:' . CALLBACK_PORT . '/callback';

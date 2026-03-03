@@ -33,6 +33,8 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/bootstrap.php';
+
 const API_BASE = 'https://www.googleapis.com/youtube/v3/';
 const TOKEN_FILE = __DIR__ . '/.youtube-oauth-token';
 

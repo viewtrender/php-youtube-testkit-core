@@ -158,8 +158,130 @@
 - **Sort:** `-views`
 
 ### 4. Traffic Sources
-- **Metrics:** `views`, `estimatedMinutesWatched`
-- **Dimensions:** `insightTrafficSourceType`
+- **Dimensions:** `insightTrafficSourceType`, `creatorContentType`, `day`, `liveOrOnDemand`, `subscribedStatus`
+- **Metrics:** `engagedViews`, `views`, `estimatedMinutesWatched`, `videoThumbnailImpressions`, `videoThumbnailImpressionsClickRate`
+
+The traffic sources fixture contains the **maximal column set** (5 dimensions + 5 metrics).
+`AnalyticsQueryResponse::trafficSources()` accepts optional `$dimensions` and `$metrics`
+arrays to filter down to only the columns your query needs. `insightTrafficSourceType` is
+always included as it is required by the API spec.
+
+#### Usage examples
+
+**Basic — all columns (no filtering):**
+
+```php
+$response = AnalyticsQueryResponse::trafficSources();
+// Returns all 10 columns × 10 rows from the fixture
+```
+
+**Filtering to specific dimensions + metrics:**
+
+```php
+// Only traffic source type + content type, with views and impressions CTR
+$response = AnalyticsQueryResponse::trafficSources(
+    dimensions: ['creatorContentType'],
+    metrics: ['views', 'videoThumbnailImpressionsClickRate'],
+);
+// columnHeaders: insightTrafficSourceType, creatorContentType, views, videoThumbnailImpressionsClickRate
+// Row data is sliced to match — no manual alignment needed
+```
+
+**Mocking a filtered API response with overrides:**
+
+```php
+// Simulate a response with only SUBSCRIBED rows
+$response = AnalyticsQueryResponse::trafficSources(
+    dimensions: ['subscribedStatus'],
+    metrics: ['views', 'estimatedMinutesWatched'],
+    overrides: [
+        'rows' => [
+            ['YT_SEARCH',  'SUBSCRIBED', 150000, 75000],
+            ['SUBSCRIBER', 'SUBSCRIBED', 200000, 100000],
+        ],
+    ],
+);
+```
+
+**Building a response from scratch with `make()`:**
+
+```php
+$response = AnalyticsQueryResponse::make(
+    columnHeaders: [
+        ['name' => 'insightTrafficSourceType', 'columnType' => 'DIMENSION', 'dataType' => 'STRING'],
+        ['name' => 'views',                    'columnType' => 'METRIC',    'dataType' => 'INTEGER'],
+    ],
+    rows: [
+        ['YT_SEARCH', 42000],
+        ['EXT_URL',   18000],
+    ],
+);
+```
+
+### 4b. Traffic Source Detail
+- **Dimensions:** `insightTrafficSourceDetail`, `creatorContentType`
+- **Metrics:** `engagedViews`, `views`, `estimatedMinutesWatched`, `videoThumbnailImpressions`, `videoThumbnailImpressionsClickRate`
+- **Required filter:** `insightTrafficSourceType==SOURCE_TYPE` (e.g. `YT_SEARCH`, `RELATED_VIDEO`, `EXT_URL`)
+
+The traffic source detail fixture contains the **maximal column set** (2 dimensions + 5 metrics).
+`AnalyticsQueryResponse::trafficSourceDetail()` accepts optional `$dimensions` and `$metrics`
+arrays to filter down to only the columns your query needs. `insightTrafficSourceDetail` is
+always included as it is required by the API spec.
+
+The fixture includes 10 rows spanning multiple traffic source types: search queries (rows 1-3),
+related video IDs (rows 4-6), external URLs (rows 7-8), a playlist ID (row 9), and an
+advertising format (row 10).
+
+#### Usage examples
+
+**Basic — all columns (no filtering):**
+
+```php
+$response = AnalyticsQueryResponse::trafficSourceDetail();
+// Returns all 7 columns × 10 rows from the fixture
+```
+
+**Filtering to specific columns:**
+
+```php
+// Only detail + content type, with views and impressions CTR
+$response = AnalyticsQueryResponse::trafficSourceDetail(
+    dimensions: ['creatorContentType'],
+    metrics: ['views', 'videoThumbnailImpressionsClickRate'],
+);
+// columnHeaders: insightTrafficSourceDetail, creatorContentType, views, videoThumbnailImpressionsClickRate
+// Row data is sliced to match — no manual alignment needed
+```
+
+**Mocking a specific traffic source type with overrides:**
+
+```php
+// Simulate YT_SEARCH detail results with custom rows
+$response = AnalyticsQueryResponse::trafficSourceDetail(
+    metrics: ['views', 'estimatedMinutesWatched'],
+    overrides: [
+        'rows' => [
+            ['how to edit videos', 'VIDEO_ON_DEMAND', 50000, 25000],
+            ['best camera 2026',   'VIDEO_ON_DEMAND', 42000, 21000],
+        ],
+    ],
+);
+```
+
+**Building a response from scratch with `make()`:**
+
+```php
+$response = AnalyticsQueryResponse::make(
+    columnHeaders: [
+        ['name' => 'insightTrafficSourceDetail', 'columnType' => 'DIMENSION', 'dataType' => 'STRING'],
+        ['name' => 'views',                      'columnType' => 'METRIC',    'dataType' => 'INTEGER'],
+    ],
+    rows: [
+        ['how to edit videos', 50000],
+        ['best camera 2026',   42000],
+    ],
+);
+```
 
 ### 5. Demographics
 - **Metrics:** `viewerPercentage`
@@ -183,4 +305,4 @@
 
 ---
 
-*Last updated: 2026-02-21*
+*Last updated: 2026-02-27*
