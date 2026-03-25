@@ -41,10 +41,12 @@
 
 ## Reach Metrics
 
-| Metric Name | Data Type | Description |
-|-------------|-----------|-------------|
-| `videoThumbnailImpressions` | INTEGER | Thumbnail impressions |
-| `videoThumbnailImpressionsClickRate` | FLOAT | Impressions CTR (0.0-1.0) |
+> **Note:** `videoThumbnailImpressions` and `videoThumbnailImpressionsClickRate` are documented by Google but **not actually available** via the Analytics API. Use the Reporting API (`video_thumbnail_impressions`, `video_thumbnail_impressions_ctr`) or Studio instead.
+
+~~| Metric Name | Data Type | Description |~~
+~~|-------------|-----------|-------------|~~
+~~| `videoThumbnailImpressions` | INTEGER | Thumbnail impressions |~~
+~~| `videoThumbnailImpressionsClickRate` | FLOAT | Impressions CTR (0.0-1.0) |~~
 
 ## Revenue Metrics (Content Owner Only)
 
@@ -159,9 +161,10 @@
 
 ### 4. Traffic Sources
 - **Dimensions:** `insightTrafficSourceType`, `creatorContentType`, `day`, `liveOrOnDemand`, `subscribedStatus`
-- **Metrics:** `engagedViews`, `views`, `estimatedMinutesWatched`, `videoThumbnailImpressions`, `videoThumbnailImpressionsClickRate`
+- **Metrics:** `engagedViews`, `views`, `estimatedMinutesWatched`
+- **NOT available:** `videoThumbnailImpressions`, `videoThumbnailImpressionsClickRate` (use Reporting API)
 
-The traffic sources fixture contains the **maximal column set** (5 dimensions + 5 metrics).
+The traffic sources fixture contains the **maximal column set** (5 dimensions + 3 metrics).
 `AnalyticsQueryResponse::trafficSources()` accepts optional `$dimensions` and `$metrics`
 arrays to filter down to only the columns your query needs. `insightTrafficSourceType` is
 always included as it is required by the API spec.
@@ -178,12 +181,12 @@ $response = AnalyticsQueryResponse::trafficSources();
 **Filtering to specific dimensions + metrics:**
 
 ```php
-// Only traffic source type + content type, with views and impressions CTR
+// Only traffic source type + content type, with views and engaged views
 $response = AnalyticsQueryResponse::trafficSources(
     dimensions: ['creatorContentType'],
-    metrics: ['views', 'videoThumbnailImpressionsClickRate'],
+    metrics: ['views', 'engagedViews'],
 );
-// columnHeaders: insightTrafficSourceType, creatorContentType, views, videoThumbnailImpressionsClickRate
+// columnHeaders: insightTrafficSourceType, creatorContentType, views, engagedViews
 // Row data is sliced to match — no manual alignment needed
 ```
 
@@ -220,10 +223,11 @@ $response = AnalyticsQueryResponse::make(
 
 ### 4b. Traffic Source Detail
 - **Dimensions:** `insightTrafficSourceDetail`, `creatorContentType`
-- **Metrics:** `engagedViews`, `views`, `estimatedMinutesWatched`, `videoThumbnailImpressions`, `videoThumbnailImpressionsClickRate`
+- **Metrics:** `engagedViews`, `views`, `estimatedMinutesWatched`
+- **NOT available:** `videoThumbnailImpressions`, `videoThumbnailImpressionsClickRate` (use Reporting API)
 - **Required filter:** `insightTrafficSourceType==SOURCE_TYPE` (e.g. `YT_SEARCH`, `RELATED_VIDEO`, `EXT_URL`)
 
-The traffic source detail fixture contains the **maximal column set** (2 dimensions + 5 metrics).
+The traffic source detail fixture contains the **maximal column set** (2 dimensions + 3 metrics).
 `AnalyticsQueryResponse::trafficSourceDetail()` accepts optional `$dimensions` and `$metrics`
 arrays to filter down to only the columns your query needs. `insightTrafficSourceDetail` is
 always included as it is required by the API spec.
@@ -244,12 +248,12 @@ $response = AnalyticsQueryResponse::trafficSourceDetail();
 **Filtering to specific columns:**
 
 ```php
-// Only detail + content type, with views and impressions CTR
+// Only detail + content type, with views and engaged views
 $response = AnalyticsQueryResponse::trafficSourceDetail(
     dimensions: ['creatorContentType'],
-    metrics: ['views', 'videoThumbnailImpressionsClickRate'],
+    metrics: ['views', 'engagedViews'],
 );
-// columnHeaders: insightTrafficSourceDetail, creatorContentType, views, videoThumbnailImpressionsClickRate
+// columnHeaders: insightTrafficSourceDetail, creatorContentType, views, engagedViews
 // Row data is sliced to match — no manual alignment needed
 ```
 
